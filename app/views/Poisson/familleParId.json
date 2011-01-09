@@ -1,0 +1,4 @@
+{
+   "id": "${famillePoisson.id}",
+   "nom": "${famillePoisson.nom}" 
+} 

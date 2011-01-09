@@ -1,0 +1,4 @@
+{
+   "id": "${pays.id}",
+   "nom": "${pays.nom}"
+}

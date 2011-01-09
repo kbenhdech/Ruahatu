@@ -1,0 +1,39 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                                       				Application.index 
+
+# JSON
+GET     /pays                                       			Pays.pays(format:'json') 
+GET     /pays/{id}                                       		Pays.paysParId(format:'json') 
+
+GET     /poisson/familles                                       Poisson.familles(format:'json') 
+GET     /poisson/famille/{id}                                   Poisson.familleParId(format:'json') 
+GET     /poisson/famille/{id}/poissons                          Poisson.poissonsDansFamille(format:'json') 
+GET     /poissons                                       		Poisson.poissons(format:'json') 
+GET     /poisson/{id}                                       	Poisson.poissonParId(format:'json') 
+
+GET     /utilisateurs                                       	Utilisateur.utilisateurs(format:'json') 
+GET     /utilisateur/{pseudo}                                   Utilisateur.utilisateurParId(format:'json') 
+GET     /utilisateur/{pseudo}/poissons                          Utilisateur.poissonsUtilisateur(format:'json') 
+
+GET     /utilisateur/{pseudo}/poisson/{idPoisson}				Utilisateur.poissonUtilisateurParId(format:'json')  
+GET     /utilisateur/{pseudo}/aquariums							Utilisateur.aquariumsUtilisateur(format:'json')  
+GET     /utilisateur/{pseudo}/aquarium/{idAquarium}				Utilisateur.aquariumUtilisateurParId(format:'json')  
+GET     /utilisateur/{pseudo}/aquarium/{idAquarium}/poissons	Utilisateur.poissonsAquariumUtilisateurParId(format:'json') 
+
+# Map static resources from the /app/public folder to the /public path
+GET     /public/                                staticDir:public
+
+# CRUD
+*      /admin              module:crud
+
+# SECURE
+GET			/							Secure.login
+POST        /         					Secure.authenticate
+GET         /        					Secure.logout
+
+# Catch all
+*       /{controller}/{action}                  {controller}.{action}

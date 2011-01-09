@@ -1,0 +1,26 @@
+[
+#{list poissons, as:'poisson'}  
+   {
+      "id": "${poisson.id}",
+	  "nomScientifique": "${poisson.nomScientifique}",
+	  "nomCommun": "${poisson.nomCommun}",
+	  "tailleAdulteMin": "${poisson.tailleAdulteMin}",
+	  "tailleAdulteMax": "${poisson.tailleAdulteMax}",
+	  "temperatureMin": "${poisson.temperatureMin}",
+	  "temperatureMax": "${poisson.temperatureMax}",
+	  "aciditeMin": "${poisson.aciditeMin}",
+	  "aciditeMax": "${poisson.aciditeMax}",
+	  "dureteMin": "${poisson.dureteMin}",
+	  "dureteMax": "${poisson.dureteMax}",
+	  "zoneDeVie": "${poisson.zoneDeVie}",
+	  "informationsComplementaire": "${poisson.informationsComplementaire}",
+	  "pays":[#{list poisson.pays, as:'pays'}  
+	          "${pays.nom}"${pays_isLast ? '' : ','}
+			  #{/list}],
+      "famille":#{if poisson.famillePoisson != null} 
+	               "${poisson.famillePoisson.nom}" 
+				#{/if} 
+				#{else}""#{/else} 
+   }${poisson_isLast ? '' : ','}
+#{/list}
+] 

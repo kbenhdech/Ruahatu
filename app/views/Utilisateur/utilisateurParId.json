@@ -1,0 +1,8 @@
+{
+   "id": "${utilisateur.id}",
+   "courriel": "${utilisateur.courriel}",
+   "pseudo": "${utilisateur.pseudo}",
+   "motDePasse": "${utilisateur.motDePasse}",
+   "nomComplet": "${utilisateur.nomComplet}",
+   "estAdministrateur": "${utilisateur.estAdministrateur}"
+}

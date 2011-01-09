@@ -1,0 +1,6 @@
+[#{list famillePoissons, as:'famillePoisson'}  
+   {
+      "id": "${famillePoisson.id}",
+	  "nom": "${famillePoisson.nom}"
+   }${famillePoisson_isLast ? '' : ','}
+#{/list}] 
