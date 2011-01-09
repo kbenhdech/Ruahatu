@@ -17,6 +17,7 @@ public class Security extends Secure.Security {
 	static final String PROPRIETAIRE = "PROPRIETAIRE";
 
 	static boolean authentify(String username, String password) {
+		/*
 		models.Utilisateur utilisateur = models.Utilisateur.find(
 				"byPseudoAndMotDePasse", username, password).first();
 		if (utilisateur != null) {
@@ -30,9 +31,12 @@ public class Security extends Secure.Security {
 			Logger.info(Messages.get("logger.info.access.error", username, password));
 			return false;
 		}
+		*/
+		return true;
 	}
 
 	static boolean check(String profile) {
+		/*
 		if (profile.equals(PROPRIETAIRE)) {
 			return estAdministrateur() || estProprietaire();
 		}
@@ -41,14 +45,18 @@ public class Security extends Secure.Security {
 			return estAdministrateur();
 		}
 		return false;
+		*/
+		return true;
 	}
 
 	private static boolean estAdministrateur() {
-		return session.get(Session.ADMIN.name()).equals("true");
+		//return session.get(Session.ADMIN.name()).equals("true");
+		return true;
 	}
 
 	private static boolean estProprietaire() {
-		return StringUtils.contains(request.path, "/" + session.get(Session.PSEUDO.name()));
+		//return StringUtils.contains(request.path, "/" + session.get(Session.PSEUDO.name()));
+		return true;
 	}
 	
 	static void onDisconnected() {
