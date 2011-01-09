@@ -1,16 +1,35 @@
 <!DOCTYPE html>
-
 <html>
     <head>
+    	#{i18n /}
         <title>#{get 'title' /}</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
+		
         <link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/main.css'}">
+		<link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/datatable.css'}">
+		<!--[if !IE 7]>
+			<style type="text/css">
+				#wrap {display:table;height:100%}
+			</style>
+		<![endif]-->
         #{get 'moreStyles' /}
-        <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
-        <script src="@{'/public/javascripts/jquery-1.4.2.min.js'}" type="text/javascript" charset="utf-8"></script>
+        
+        <script src="@{'/public/javascripts/requireplugins-jquery.js'}" type="text/javascript" charset="utf-8" ></script>
+		<script type="text/javascript" charset="utf-8" >
+			var sLogin="${session.LOGIN}";
+			var sKey="${session.KEY}";
+		</script>
         #{get 'moreScripts' /}
+		
     </head>
     <body>
-        #{doLayout /}
+    	<div id="wrapper">
+    		<div id="header">#{header /}</div>
+			<div id="menu">#{menu /}</div>
+			<div id="main">#{doLayout /} </div>
+		</div>
+		<div id="footer">#{footer /}</div>
     </body>
 </html>
+

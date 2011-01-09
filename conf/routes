@@ -3,10 +3,19 @@
 # ~~~~
 
 # Home page
-GET     /                                       Application.index
+GET     /                                       				Application.index 
+GET     /poissons.html                                       	Application.poissons 
+GET     /poisson.html                                			Application.poisson
+GET     /registration.html                                		Application.registration
+POST    /registration.html                                		Application.registration
 
 # Map static resources from the /app/public folder to the /public path
 GET     /public/                                staticDir:public
+
+# SECURE
+GET			/							Secure.login
+POST        /         					Secure.authenticate
+GET         /deconnexion.html         	Secure.logout
 
 # Catch all
 *       /{controller}/{action}                  {controller}.{action}
