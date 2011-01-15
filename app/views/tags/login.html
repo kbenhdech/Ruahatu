@@ -1,0 +1,28 @@
+#{form @Secure.authenticate()}
+	
+	#{if flash.error}
+		<p class="error">
+			&{flash.error}
+		</p>
+	#{/if}
+	#{if flash.success}
+		<p class="success">
+			&{flash.success}
+		</p>
+	#{/if}
+
+	<label for="username">&{'secure.username'}</label>
+	<input type="text" name="username" id="username" value="${flash.username}" />
+	
+	<label for="password">&{'secure.password'}</label>
+	<input type="password" name="password" id="password" value="" />
+	<br />
+	
+	<input type="checkbox" name="remember" id="remember" value="true" ${flash.remember ? 'checked="true"' : ''} />
+	<label for="remember">&{'secure.remember'}</label>
+		
+	<a id="button" href="@{Application.enregistrement()}" title="&{'login.inscription'}"><img src="@{'/public/images/inscription.png'}" /></a>
+	
+	<button type="submit" id="signin" title="&{'secure.signin'}" /></button>
+	
+#{/form}

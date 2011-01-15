@@ -1,0 +1,59 @@
+#{extends 'main.html' /}
+#{set title:'Ruahatu - Poisson' /}
+
+#{set 'moreScripts'}
+	<script language="Javascript" type="text/javascript" />
+		require([], function() {
+				$(document).ready(function() {
+				});
+			});	
+	</script> 
+#{/set}	
+
+<div id="registration">
+	
+	#{form @Application.enregistrementForm()}
+		
+		#{if flash.error}
+			<p class="error">
+				&{flash.error}
+			</p>
+		#{/if}
+		#{if flash.success}
+			<p class="success">
+				&{flash.success}
+			</p>
+		#{/if}
+	
+		#{if flash.error}
+			<p class="error">
+				&{flash.courriel}
+				&{flash.pseudo}
+				&{flash.aaa}
+			</p>
+		#{/if}
+		<label for="pseudo">&{'registration.pseudo'}</label>
+		<input type="text" name="pseudo" id="pseudo" value="" />
+		
+		<label for="email">&{'registration.email'}</label>
+		<input type="text" name="email" id="email" value="" />
+		
+		<label for="password">&{'registration.password'}</label>
+		<input type="password" name="password" id="password" value="" />
+		
+		<label for="password.confirmation">&{'registration.password.confirmation'}</label>
+		<input type="password" name="password.confirmation" id="password.confirmation" value="" />
+		
+		<label for="name">&{'registration.name'}</label>
+		<input type="text" name="name" id="name" value="" />
+		
+		<button type="submit" id="submit" title="&{'registration.submit'}" />&{'registration.submit'}</button>
+		
+	#{/form}	
+		
+</div>
+
+
+
+    
+ 
