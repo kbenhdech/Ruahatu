@@ -1,3 +1,10 @@
 
 /tmp/*
 /test-result/*
+/eclipse/*
+/lib/*
+*.classpath
+*.project
+*.prefs
+/app/views/.*~
+/app/views/Application/.*~
