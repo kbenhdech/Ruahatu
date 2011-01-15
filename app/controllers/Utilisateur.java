@@ -17,10 +17,8 @@ import play.mvc.With;
  *         /utilisateur/{pseudo}/aquarium/{id} <br />
  *         /utilisateur/{pseudo}/aquarium/{id}/poissons
  */
-@With(Secure.class)
-public class Utilisateur extends Controller {
+public class Utilisateur extends AbstractController {
 
-	@Check(Security.ADMINISTRATEUR)
 	public static void utilisateurs() {
 		List<models.Utilisateur> utilisateurs = models.Utilisateur.findAll();
 		if (utilisateurs != null)
@@ -29,7 +27,6 @@ public class Utilisateur extends Controller {
 			notFound();
 	}
 
-	@Check(Security.PROPRIETAIRE)
 	public static void utilisateurParId(String pseudo) {
 		models.Utilisateur utilisateur = models.Utilisateur.find("byPseudo", pseudo)
 				.<models.Utilisateur> first();
@@ -39,7 +36,6 @@ public class Utilisateur extends Controller {
 			notFound();
 	}
 
-	@Check(Security.PROPRIETAIRE)
 	public static void poissonsUtilisateur(String pseudo) {
 		models.Utilisateur utilisateur = models.Utilisateur.find("byPseudo", pseudo)
 				.<models.Utilisateur> first();
@@ -52,7 +48,6 @@ public class Utilisateur extends Controller {
 			notFound();
 	}
 
-	@Check(Security.PROPRIETAIRE)
 	public static void poissonUtilisateurParId(String pseudo,
 			Long idPoisson) {
 		models.AquaPoisson poisson = models.AquaPoisson.find("byId", idPoisson)
@@ -66,7 +61,6 @@ public class Utilisateur extends Controller {
 			notFound();
 	}
 
-	@Check(Security.PROPRIETAIRE)
 	public static void aquariumsUtilisateur(String pseudo) {
 		models.Utilisateur utilisateur = models.Utilisateur.find("byPseudo", pseudo)
 				.<models.Utilisateur> first();
@@ -79,12 +73,11 @@ public class Utilisateur extends Controller {
 			notFound();
 	}
 
-	@Check(Security.PROPRIETAIRE)
 	public static void aquariumUtilisateurParId(String pseudo,
 			Long idAquarium) {
 		models.Aquarium aquarium = models.Aquarium.find("byId", idAquarium)
 				.<models.Aquarium> first();
-		if (aquarium.utilisateur == null
+		if (aquarium == null || aquarium.utilisateur == null
 				|| !aquarium.utilisateur.pseudo.equals(pseudo))
 			aquarium = null;
 		if (aquarium != null)
@@ -93,7 +86,6 @@ public class Utilisateur extends Controller {
 			notFound();
 	}
 
-	@Check(Security.PROPRIETAIRE)
 	public static void poissonsAquariumUtilisateurParId(String pseudo,
 			Long idAquarium) {
 		models.Aquarium aquarium = models.Aquarium.find("byId", idAquarium)

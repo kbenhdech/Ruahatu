@@ -1,7 +1,6 @@
 package controllers;
 
 import java.util.List;
-
 import play.mvc.Controller;
 import play.mvc.With;
 
@@ -11,7 +10,7 @@ import play.mvc.With;
  */
 @With(Secure.class)
 @Check(Security.ADMINISTRATEUR)
-@CRUD.For(models.Pays.class)
-public class PaysCRUD extends CRUD {
+@CRUD.For(models.Utilisateur.class)
+public class AccesServicesWebCRUD extends CRUD {
 
 }

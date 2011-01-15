@@ -1,6 +1,5 @@
 #{extends 'cross-domain.json' /}
 {
-   "id": "${utilisateur.id}",
    "courriel": "${utilisateur.courriel}",
    "pseudo": "${utilisateur.pseudo}",
    "nomComplet": "${utilisateur.nomComplet}",

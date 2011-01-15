@@ -1,3 +1,4 @@
+#{extends 'cross-domain.json' /}
 [#{list poissons, as:'poisson'}  
    {
       "id": "${poisson.id}",

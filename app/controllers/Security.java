@@ -4,11 +4,12 @@ import org.apache.commons.lang.StringUtils;
 
 import play.Logger;
 import play.i18n.Messages;
-
 import enums.Session;
 
 /**
- * @author kbenhdech
+ * @author kbenhdech 
+ * Gére la sécurité lors d'un accés direct par le domaine où
+ * est présente cette application.
  * 
  */
 public class Security extends Secure.Security {
@@ -17,7 +18,6 @@ public class Security extends Secure.Security {
 	static final String PROPRIETAIRE = "PROPRIETAIRE";
 
 	static boolean authentify(String username, String password) {
-		/*
 		models.Utilisateur utilisateur = models.Utilisateur.find(
 				"byPseudoAndMotDePasse", username, password).first();
 		if (utilisateur != null) {
@@ -28,42 +28,36 @@ public class Security extends Secure.Security {
 					.valueOf(utilisateur.estAdministrateur));
 			return true;
 		} else {
-			Logger.info(Messages.get("logger.info.access.error", username, password));
+			Logger.info(Messages.get("logger.info.access.error", username,
+					password));
 			return false;
 		}
-		*/
-		return true;
 	}
 
 	static boolean check(String profile) {
-		/*
 		if (profile.equals(PROPRIETAIRE)) {
 			return estAdministrateur() || estProprietaire();
 		}
-
 		if (profile.equals(ADMINISTRATEUR)) {
 			return estAdministrateur();
 		}
 		return false;
-		*/
-		return true;
 	}
 
 	private static boolean estAdministrateur() {
-		//return session.get(Session.ADMIN.name()).equals("true");
-		return true;
+		return session.get(Session.ADMIN.name()).equals("true");
 	}
 
 	private static boolean estProprietaire() {
-		//return StringUtils.contains(request.path, "/" + session.get(Session.PSEUDO.name()));
-		return true;
+		return StringUtils.contains(request.path, "/"
+				+ session.get(Session.PSEUDO.name()));
 	}
-	
+
 	static void onDisconnected() {
-	    Application.index();
+		Application.index();
 	}
-	
+
 	static void onAuthenticated() {
 		redirect(request.url);
-    }
+	}
 }

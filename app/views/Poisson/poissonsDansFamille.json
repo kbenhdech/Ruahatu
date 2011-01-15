@@ -1,3 +1,4 @@
+#{extends 'cross-domain.json' /}
 [#{list poissons, as:'poisson'}  
    {
       "id": "${poisson.id}",
@@ -15,7 +16,7 @@
 	  "informationsComplementaire": "${poisson.informationsComplementaire}",
 	  "pays":[#{list poisson.pays, as:'pays'}
 	     "${pays.nom}"${pays_isLast ? '' : ','}
-	  #{/list}]
+	  #{/list}],
 	  "famille": "${poisson.famillePoisson.nom}"
    }${poisson_isLast ? '' : ','}
 #{/list}] 

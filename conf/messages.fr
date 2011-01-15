@@ -1,19 +1,3 @@
-poisson.id=Identifiant
-poisson.nomScientifique=Nom scientifique
-poisson.nomCommun=Nom commun
-poisson.famille=Famille
-poisson.pays=Pays
-poisson.tailleAdulteMin=Taille adulte minimum
-poisson.tailleAdulteMax=Taille adulte maximum
-poisson.temperatureMin=Température minimum
-poisson.temperatureMax=Température maximum
-poisson.aciditeMin=Acidité minimum
-poisson.aciditeMax=Acidité maximum
-poisson.dureteMin=Dureté minimum
-poisson.dureteMax=Dureté maximum
-poisson.zoneDeVie=Zone de vie
-poisson.informationsComplementaire=Informations complémentaire
-
 crud.title=Administration
 crud.home=Accueil
 crud.blank=Nouveau
@@ -95,4 +79,13 @@ validation.object=Validation failed
 validation.notFound=Object not found for id %2$s
 validation.url=n'est pas une URL valide
 
-logger.info.access.error=Le couple login/mot de passe (%s/%s) que vous avez entré est incorrecte.
+logger.info.access.error=Le couple login/mot de passe (%s/%s) que vous avez entré est incorrecte
+logger.info.cross.domain.call=Appel cross-domain
+logger.info.autorisation.request.info=Domain: %s - Pseudo: %s - CleCrypeRecu: %s
+logger.info.autorised.access=L'autorisation d'accés au service à échoué"
+logger.info.autorised.request=Requête autorisée ? : %s
+logger.info.autorised.key=Clé autorisée ? : %s
+
+logger.info.authentification.info=Authentification: %s:%s
+logger.info.authentification.success=Authentification: succés
+logger.info.authentification.error=Authentification: erreur

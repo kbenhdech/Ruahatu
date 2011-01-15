@@ -10,7 +10,7 @@ import play.mvc.Controller;
  *         /pays <br />
  *         /pays/{id} <br />
  */
-public class Pays extends Controller {
+public class Pays extends AbstractController {
 
 	public static void pays() {
 		List<models.Pays> pays = models.Pays.findAll();
