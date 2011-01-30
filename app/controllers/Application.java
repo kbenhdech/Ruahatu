@@ -54,5 +54,13 @@ public class Application extends Controller {
 		// redirect(request.url);
 		enregistrement();
 	}
+	
+	public static void board() {
+		render();
+	}
+	
+	public static void myFish(Integer id) {
+		render(id);
+	}
 
 }

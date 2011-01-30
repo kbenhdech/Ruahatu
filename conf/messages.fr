@@ -67,7 +67,7 @@ datatable.sEmptyTable=Il n'y a aucune données en table
 datatable.sInfo=_TOTAL_ lignes de _START_ à _END_
 datatable.sInfoEmpty=Auncune informations à montrer
 datatable.sInfoFiltered= - Filtre sur _MAX_ lignes
-datatable.sInfoPostFix=
+datatable.sInfoPostFix=<span></span> 
 datatable.sLengthMenu=Voir <select><option value="25">25</option><option value="50">50</option><option value="75">75</option><option value="100">100</option></select> lignes
 datatable.sProcessing=En cours de chargement
 datatable.sSearch=Recherche:
@@ -76,6 +76,7 @@ datatable.sZeroRecords=Auncune informations à montrer
 menu.home=Accueil
 menu.fishes=Poissons
 menu.plants=Plantes
+menu.my.board=Tableau de bord
 
 poisson.id=Identifiant
 poisson.nomScientifique=Nom scientifique
@@ -92,3 +93,8 @@ poisson.dureteMin=Dureté minimum
 poisson.dureteMax=Dureté maximum
 poisson.zoneDeVie=Zone de vie
 poisson.informationsComplementaire=Informations complémentaire
+
+myPoisson.pseudo=Pseudo
+myPoisson.dateAchat=Date d'achat
+myPoisson.dateNaissance=Date de naissance
+myPoisson.commentaire=Commentaire

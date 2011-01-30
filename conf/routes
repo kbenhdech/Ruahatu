@@ -8,6 +8,8 @@ GET     /poissons.html                                       	Application.poisso
 GET     /poisson.html                                			Application.poisson
 GET     /registration.html                                		Application.registration
 POST    /registration.html                                		Application.registration
+GET     /my_fish.html                                			Application.myFish
+GET     /board.html                                				Application.board
 
 # Map static resources from the /app/public folder to the /public path
 GET     /public/                                staticDir:public
