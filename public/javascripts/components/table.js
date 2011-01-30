@@ -63,12 +63,28 @@ require.def("components/table", [ "utils/ajaxJson", "utils/urls", "plugins/jquer
 		$(id).dataTable(datatableConfig);
 	};	
 	
+	myAquariums = function(data, id) {
+	    var content = header(['myAquarium.nom', 'myAquarium.volumeEau', 'myAquarium.puissanceEclairage', 'myAquarium.temperatureEau', 
+	                          'myAquarium.dureteEau', 'myAquarium.aciditeEau', 'myAquarium.commentaire']);
+	    fTab = function(myAquarium){
+	    	return ["<a href='" + URLS.getURL(URLS.MY_ONE_AQUARIUM_HTML, {"id": myAquarium.id}) + "'>" + myAquarium.nom + "</a>", 
+	    	        myAquarium.volumeEau, myAquarium.puissanceEclairage, myAquarium.temperatureEau, 
+                    myAquarium.dureteEau, myAquarium.aciditeEau, myAquarium.commentaire]	
+	    }
+	    content += body(fTab, data, id);
+		$(content).appendTo(id);
+		$(id).dataTable(datatableConfig);
+	};
+	
 	return {
 		"fishes" : function (id){
 			AjaxJson.getJson(URLS.FISH_LIST_JSON, fishes.rcurry(id));
 		},
 		"myFishes" : function (id){
 			AjaxJson.getJson(URLS.MY_FISH_LIST_JSON, myFishes.rcurry(id));
+		},
+		"myAquariums" : function (id){
+			AjaxJson.getJson(URLS.MY_AQUARIUM_LIST_JSON, myAquariums.rcurry(id));
 		}
 	}
 	

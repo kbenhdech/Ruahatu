@@ -10,6 +10,8 @@ GET     /registration.html                                		Application.registra
 POST    /registration.html                                		Application.registration
 GET     /my_fish.html                                			Application.myFish
 GET     /board.html                                				Application.board
+GET     /my_aquarium.html                                		Application.myAquarium
+GET     /my_aquariums.html                            			Application.myAquariums
 
 # Map static resources from the /app/public folder to the /public path
 GET     /public/                                staticDir:public

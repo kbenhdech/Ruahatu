@@ -1,7 +1,7 @@
 require.def("components/card", [ "utils/ajaxJson", "utils/urls", "plugins/jquery.dataTables", "functional", "utils/utils"], function(AjaxJson, URLS, Datatable, Functional, Utils) {
 	
 	row = function (name, value){
-		return content += "<tr><td>" + i18n(name) + ":"  +  "</td><td>" + Utils.emptyIfUndefined(value) + "</td></tr>";
+		return "<tr><td>" + i18n(name) + ":"  +  "</td><td>" + Utils.emptyIfUndefined(value) + "</td></tr>";
 	}
 	
 	oneFish = function (poisson, id) {
@@ -48,6 +48,17 @@ require.def("components/card", [ "utils/ajaxJson", "utils/urls", "plugins/jquery
 		$(content).appendTo(id);
 	};	
 	
+	myOneAquarium = function (myAquarium, id) {
+		content = "<h1>" + myAquarium.nom + "</h1>";
+		content += "<table>";
+		content += row('myAquarium.volumeEau', myAquarium.volumeEau);
+		content += row('myAquarium.temperatureEau', myAquarium.temperatureEau);
+		content += row('myAquarium.dureteEau', myAquarium.dureteEau);
+		content += row('myAquarium.aciditeEau', myAquarium.aciditeEau);
+		content += "</table>";
+		$(content).appendTo(id);
+	};	
+	
 	return {
 		"oneFish" : function (idClass, idFish){
 			AjaxJson.getJson(URLS.getURL(URLS.ONE_FISH_JSON, {"id":idFish}), oneFish.rcurry(idClass));
@@ -55,6 +66,10 @@ require.def("components/card", [ "utils/ajaxJson", "utils/urls", "plugins/jquery
 		
 		"myOneFish" : function (idClass, idFish){
 			AjaxJson.getJson(URLS.getURL(URLS.MY_ONE_FISH_JSON, {"id":idFish}), myOneFish.rcurry(idClass));
+		},
+		
+		"myOneAquarium" : function (idClass, idAquarium){
+			AjaxJson.getJson(URLS.getURL(URLS.MY_ONE_AQUARIUM_JSON, {"id":idAquarium}), myOneAquarium.rcurry(idClass));
 		}
 	}
 	

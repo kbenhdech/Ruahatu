@@ -98,3 +98,10 @@ myPoisson.pseudo=Pseudo
 myPoisson.dateAchat=Date d'achat
 myPoisson.dateNaissance=Date de naissance
 myPoisson.commentaire=Commentaire
+
+myAquarium.nom=Nom
+myAquarium.volumeEau=Volume
+myAquarium.temperatureEau=Température
+myAquarium.dureteEau=Dureté
+myAquarium.aciditeEau=Acidité
+myAquarium.commentaire=Commentaire

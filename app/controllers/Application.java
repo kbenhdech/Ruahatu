@@ -55,11 +55,20 @@ public class Application extends Controller {
 		enregistrement();
 	}
 	
+	//userFishesList
 	public static void board() {
 		render();
 	}
 	
 	public static void myFish(Integer id) {
+		render(id);
+	}
+	
+	public static void myAquariums() {
+		render();
+	}
+	
+	public static void myAquarium(Integer id) {
 		render(id);
 	}
 

@@ -1,0 +1,16 @@
+#{extends 'main.html' /}
+#{set title:'Ruahatu - Mes aquariums' /}
+
+#{set 'moreScripts'}
+	<script language="Javascript" type="text/javascript" />
+		require(["components/table", "utils/urls"], function(Table, URLS) {
+				$(document).ready(function() {
+				    Table.myAquariums("#example");
+				});
+			});	
+	</script> 
+#{/set}	
+		
+<table id="example">
+
+</table>
