@@ -8,8 +8,9 @@ GET     /poissons.html                                       	Application.poisso
 GET     /poisson.html                                			Application.poisson
 GET     /registration.html                                		Application.registration
 POST    /registration.html                                		Application.registration
-GET     /my_fish.html                                			Application.myFish
 GET     /board.html                                				Application.board
+GET     /my_fish.html                                			Application.myFish
+GET     /my_fishes.html                                			Application.myFishes
 GET     /my_aquarium.html                                		Application.myAquarium
 GET     /my_aquariums.html                            			Application.myAquariums
 

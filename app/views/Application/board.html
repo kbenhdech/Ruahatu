@@ -1,16 +1,25 @@
 #{extends 'main.html' /}
-#{set title:'Ruahatu - Mes poissons' /}
+#{set title:'Ruahatu - Tableau de bord' /}
 
 #{set 'moreScripts'}
 	<script language="Javascript" type="text/javascript" />
-		require(["components/table", "utils/urls"], function(Table, URLS) {
+		require(["plugins/jquery-ui.custom.min", "components/table"], function(jqueryUI, Table) {
 				$(document).ready(function() {
-				    Table.myFishes("#example");
+					Table.myFishes("#myFishes");//init
+				    $('#tabs').tabs({
+						select: function(event, ui) {
+       						if(ui.index == 0) Table.myFishes("#myFishes");
+							if(ui.index == 1) Table.myAquariums("#myAquariums");
+   						}
+					});
 				});
 			});	
 	</script> 
 #{/set}	
-		
-<table id="example">
 
-</table>
+<div id="tabs">
+     <ul>
+         <li><a href="my_fishes.html"><span>Mes poissons</span></a></li>
+         <li><a href="my_aquariums.html"><span>Mes aquariums</span></a></li>
+     </ul>
+</div>

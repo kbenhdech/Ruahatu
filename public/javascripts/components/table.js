@@ -51,12 +51,10 @@ require.def("components/table", [ "utils/ajaxJson", "utils/urls", "plugins/jquer
 	};
 	
 	myFishes = function(data, id) {
-	    var content = header(['myPoisson.pseudo', 'myPoisson.dateAchat', 'myPoisson.dateNaissance', 'myPoisson.commentaire', 
-	                          'poisson.nomCommun', 'poisson.nomScientifique', 'poisson.famille', 'poisson.pays', 'poisson.informationsComplementaire']);
+	    var content = header(['myPoisson.pseudo', 'myPoisson.dateAchat', 'myPoisson.dateNaissance']);
 	    fTab = function(myPoisson){
 	    	return ["<a href='" + URLS.getURL(URLS.MY_ONE_FISH_HTML, {"id": myPoisson.id}) + "'>" + myPoisson.pseudo + "</a>", 
-	    	        myPoisson.dateAchat, myPoisson.dateNaissance, myPoisson.commentaire, myPoisson.poisson.nomCommun, myPoisson.poisson.nomScientifique,
-	    	        myPoisson.poisson.famille, myPoisson.poisson.pays, myPoisson.poisson.informationsComplementaire]	
+	    	        myPoisson.dateAchat, myPoisson.dateNaissance]	
 	    }
 	    content += body(fTab, data, id);
 		$(content).appendTo(id);
@@ -64,12 +62,10 @@ require.def("components/table", [ "utils/ajaxJson", "utils/urls", "plugins/jquer
 	};	
 	
 	myAquariums = function(data, id) {
-	    var content = header(['myAquarium.nom', 'myAquarium.volumeEau', 'myAquarium.puissanceEclairage', 'myAquarium.temperatureEau', 
-	                          'myAquarium.dureteEau', 'myAquarium.aciditeEau', 'myAquarium.commentaire']);
+	    var content = header(['myAquarium.nom', 'myAquarium.volumeEau']);
 	    fTab = function(myAquarium){
 	    	return ["<a href='" + URLS.getURL(URLS.MY_ONE_AQUARIUM_HTML, {"id": myAquarium.id}) + "'>" + myAquarium.nom + "</a>", 
-	    	        myAquarium.volumeEau, myAquarium.puissanceEclairage, myAquarium.temperatureEau, 
-                    myAquarium.dureteEau, myAquarium.aciditeEau, myAquarium.commentaire]	
+	    	        myAquarium.volumeEau]	
 	    }
 	    content += body(fTab, data, id);
 		$(content).appendTo(id);

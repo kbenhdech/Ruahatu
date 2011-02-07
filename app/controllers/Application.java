@@ -55,8 +55,11 @@ public class Application extends Controller {
 		enregistrement();
 	}
 	
-	//userFishesList
 	public static void board() {
+		render();
+	}
+	
+	public static void myFishes() {
 		render();
 	}
 	

@@ -1,8 +1,7 @@
-<a href="/"><img src="@{'/public/images/menu/menu_accueil.png'}" /><span>&{'menu.home'}</span></a>
 <a href="@{Application.poissons()}"><img src="@{'/public/images/menu/menu_poisson.png'}" /><span>&{'menu.fishes'}</span></a>
 <a href=""><img src="@{'/public/images/menu/menu_plante.png'}" /><span>&{'menu.plants'}</span></a>
 
 #{if session.LOGIN != null}
-	<a href="@{Application.board()}"><span>&{'menu.my.board'}</span></a>
+	<a href="@{Application.board()}"><img src="@{'/public/images/menu/menu_accueil.png'}" /><span>&{'menu.my.board'}</span></a>
 #{/if}
 

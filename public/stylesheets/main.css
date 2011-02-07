@@ -54,6 +54,10 @@ a:hover{
 	margin: 20px 0px 5px 0px;
 }
 
+#header_button {
+	border: 0px;	
+}
+
 #menu{
 	background-color: white;
 	height: 50px;
@@ -96,7 +100,7 @@ a:hover{
 
 /*************************************************
  * 
- * TABLE
+ * TABLE (example)
  * 
  ************************************************/
 
@@ -183,6 +187,190 @@ table#example tr.even td{
 }
 
 #example_wrapper .paginate_enabled_next {
+	background-image: url(../images/datatable/next.png);
+}
+
+/*************************************************
+ * 
+ * TABLE (myAquariums)
+ * 
+ ************************************************/
+
+#myAquariums_wrapper{
+	margin: 10px 0px 40px 0px;
+	width: 100%;
+	background-image: url(../images/datatable/table_header_blue.png);
+	border: solid 1px #4297D7;
+	color: white;
+	font-weight: bold;
+	min-height: 0;
+}
+
+#myAquariums_wrapper input, #myAquariums_wrapper select{
+	border: solid 1px #4297D7;
+}
+
+#myAquariums_length{
+	float: left;
+	width: 40%;
+	margin: 5px;
+}
+
+#myAquariums_filter{
+	float: right;
+	width: 40%;
+	margin: 5px;
+}
+
+table#myAquariums{
+	border-collapse: collapse;
+	border: solid 0px #4297D7;
+	clear: both; 
+	width: 100%;
+	margin-top: 5px;
+	margin-bottom: 2px;
+	color: black;
+	font-weight: normal;
+}
+
+table#myAquariums thead{
+	background-image: url(../images/datatable/table_sub_header_blue.png);
+	color: #4297D7
+}
+
+table#myAquariums td{
+	padding: 5px;
+}
+
+table#myAquariums tr.odd td{
+	background-color: white;
+	border-top: solid 1px #4297D7;
+}
+
+table#myAquariums tr.even td{
+	background-color: white;
+	border-top: solid 1px #4297D7;
+}
+
+#myAquariums_info{
+	padding: 5px;
+	marging: 0px;
+	color: #4297D7;
+	font-weight: bold;
+}
+
+#myAquariums_paginate{
+	padding: 4px;
+	marging: 0px;
+	font-weight: bold;
+	color: #4297D7;
+}
+
+#myAquariums_wrapper .paginate_disabled_previous {
+	background-image: url(../images/datatable/previous_disabled.png);
+}
+
+#myAquariums_wrapper .paginate_enabled_previous {
+	background-image: url(../images/datatable/previous.png);
+}
+
+#myAquariums_wrapper .paginate_disabled_next {
+	background-image: url(../images/datatable/next_disabled.png);
+}
+
+#myAquariums_wrapper .paginate_enabled_next {
+	background-image: url(../images/datatable/next.png);
+}
+
+/*************************************************
+ * 
+ * TABLE (myFishes)
+ * 
+ ************************************************/
+
+#myFishes_wrapper{
+	margin: 10px 0px 40px 0px;
+	width: 100%;
+	background-image: url(../images/datatable/table_header_blue.png);
+	border: solid 1px #4297D7;
+	color: white;
+	font-weight: bold;
+	min-height: 0;
+}
+
+#myFishes_wrapper input, #myFishes_wrapper select{
+	border: solid 1px #4297D7;
+}
+
+#myFishes_length{
+	float: left;
+	width: 40%;
+	margin: 5px;
+}
+
+#myFishes_filter{
+	float: right;
+	width: 40%;
+	margin: 5px;
+}
+
+table#myFishes{
+	border-collapse: collapse;
+	border: solid 0px #4297D7;
+	clear: both; 
+	width: 100%;
+	margin-top: 5px;
+	margin-bottom: 2px;
+	color: black;
+	font-weight: normal;
+}
+
+table#myFishes thead{
+	background-image: url(../images/datatable/table_sub_header_blue.png);
+	color: #4297D7
+}
+
+table#myFishes td{
+	padding: 5px;
+}
+
+table#myFishes tr.odd td{
+	background-color: white;
+	border-top: solid 1px #4297D7;
+}
+
+table#myFishes tr.even td{
+	background-color: white;
+	border-top: solid 1px #4297D7;
+}
+
+#myFishes_info{
+	padding: 5px;
+	marging: 0px;
+	color: #4297D7;
+	font-weight: bold;
+}
+
+#myFishes_paginate{
+	padding: 4px;
+	marging: 0px;
+	font-weight: bold;
+	color: #4297D7;
+}
+
+#myFishes_wrapper .paginate_disabled_previous {
+	background-image: url(../images/datatable/previous_disabled.png);
+}
+
+#myFishes_wrapper .paginate_enabled_previous {
+	background-image: url(../images/datatable/previous.png);
+}
+
+#myFishes_wrapper .paginate_disabled_next {
+	background-image: url(../images/datatable/next_disabled.png);
+}
+
+#myFishes_wrapper .paginate_enabled_next {
 	background-image: url(../images/datatable/next.png);
 }
 

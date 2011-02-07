@@ -76,7 +76,7 @@ datatable.sZeroRecords=Auncune informations à montrer
 menu.home=Accueil
 menu.fishes=Poissons
 menu.plants=Plantes
-menu.my.board=Tableau de bord
+menu.my.board=Espace perso
 
 poisson.id=Identifiant
 poisson.nomScientifique=Nom scientifique

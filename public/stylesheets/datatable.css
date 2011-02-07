@@ -26,13 +26,157 @@
  */
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * Personnal DataTables 
+ * Personnal DataTables (example) 
  */
 
 #example_wrapper {
 	width: 800px;
 }
 
+/*
+ * Row highlighting example
+ */
+.ex_highlight #example tbody tr.even:hover, #example tbody tr.even td.highlighted {
+	background-color: #ECFFB3;
+}
+
+.ex_highlight #example tbody tr.odd:hover, #example tbody tr.odd td.highlighted {
+	background-color: #E6FF99;
+}
+
+.ex_highlight_row #example tr.even:hover {
+	background-color: #ECFFB3;
+}
+
+.ex_highlight_row #example tr.even:hover td.sorting_1 {
+	background-color: #DDFF75;
+}
+
+.ex_highlight_row #example tr.even:hover td.sorting_2 {
+	background-color: #E7FF9E;
+}
+
+.ex_highlight_row #example tr.even:hover td.sorting_3 {
+	background-color: #E2FF89;
+}
+
+.ex_highlight_row #example tr.odd:hover {
+	background-color: #E6FF99;
+}
+
+.ex_highlight_row #example tr.odd:hover td.sorting_1 {
+	background-color: #D6FF5C;
+}
+
+.ex_highlight_row #example tr.odd:hover td.sorting_2 {
+	background-color: #E0FF84;
+}
+
+.ex_highlight_row #example tr.odd:hover td.sorting_3 {
+	background-color: #DBFF70;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Personnal DataTables (myFishes) 
+ */
+
+#myFishes_wrapper {
+	width: 400px;
+}
+
+/*
+ * Row highlighting example
+ */
+.ex_highlight #myFishes tbody tr.even:hover, #myFishes tbody tr.even td.highlighted {
+	background-color: #ECFFB3;
+}
+
+.ex_highlight #myFishes tbody tr.odd:hover, #myFishes tbody tr.odd td.highlighted {
+	background-color: #E6FF99;
+}
+
+.ex_highlight_row #myFishes tr.even:hover {
+	background-color: #ECFFB3;
+}
+
+.ex_highlight_row #myFishes tr.even:hover td.sorting_1 {
+	background-color: #DDFF75;
+}
+
+.ex_highlight_row #myFishes tr.even:hover td.sorting_2 {
+	background-color: #E7FF9E;
+}
+
+.ex_highlight_row #myFishes tr.even:hover td.sorting_3 {
+	background-color: #E2FF89;
+}
+
+.ex_highlight_row #myFishes tr.odd:hover {
+	background-color: #E6FF99;
+}
+
+.ex_highlight_row #myFishes tr.odd:hover td.sorting_1 {
+	background-color: #D6FF5C;
+}
+
+.ex_highlight_row #myFishes tr.odd:hover td.sorting_2 {
+	background-color: #E0FF84;
+}
+
+.ex_highlight_row #myFishes tr.odd:hover td.sorting_3 {
+	background-color: #DBFF70;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Personnal DataTables (myAquariums) 
+ */
+
+#myAquariums_wrapper {
+	width: 400px;
+}
+
+/*
+ * Row highlighting example
+ */
+.ex_highlight #myAquariums tbody tr.even:hover, #myAquariums tbody tr.even td.highlighted {
+	background-color: #ECFFB3;
+}
+
+.ex_highlight #myAquariums tbody tr.odd:hover, #myAquariums tbody tr.odd td.highlighted {
+	background-color: #E6FF99;
+}
+
+.ex_highlight_row #myAquariums tr.even:hover {
+	background-color: #ECFFB3;
+}
+
+.ex_highlight_row #myAquariums tr.even:hover td.sorting_1 {
+	background-color: #DDFF75;
+}
+
+.ex_highlight_row #myAquariums tr.even:hover td.sorting_2 {
+	background-color: #E7FF9E;
+}
+
+.ex_highlight_row #myAquariums tr.even:hover td.sorting_3 {
+	background-color: #E2FF89;
+}
+
+.ex_highlight_row #myAquariums tr.odd:hover {
+	background-color: #E6FF99;
+}
+
+.ex_highlight_row #myAquariums tr.odd:hover td.sorting_1 {
+	background-color: #D6FF5C;
+}
+
+.ex_highlight_row #myAquariums tr.odd:hover td.sorting_2 {
+	background-color: #E0FF84;
+}
+
+.ex_highlight_row #myAquariums tr.odd:hover td.sorting_3 {
+	background-color: #DBFF70;
+}
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * DataTables features
@@ -464,51 +608,6 @@ tr.even.gradeU td.sorting_2 {
 tr.even.gradeU td.sorting_3 {
 	background-color: #e2e2e2;
 }
-
-
-/*
- * Row highlighting example
- */
-.ex_highlight #example tbody tr.even:hover, #example tbody tr.even td.highlighted {
-	background-color: #ECFFB3;
-}
-
-.ex_highlight #example tbody tr.odd:hover, #example tbody tr.odd td.highlighted {
-	background-color: #E6FF99;
-}
-
-.ex_highlight_row #example tr.even:hover {
-	background-color: #ECFFB3;
-}
-
-.ex_highlight_row #example tr.even:hover td.sorting_1 {
-	background-color: #DDFF75;
-}
-
-.ex_highlight_row #example tr.even:hover td.sorting_2 {
-	background-color: #E7FF9E;
-}
-
-.ex_highlight_row #example tr.even:hover td.sorting_3 {
-	background-color: #E2FF89;
-}
-
-.ex_highlight_row #example tr.odd:hover {
-	background-color: #E6FF99;
-}
-
-.ex_highlight_row #example tr.odd:hover td.sorting_1 {
-	background-color: #D6FF5C;
-}
-
-.ex_highlight_row #example tr.odd:hover td.sorting_2 {
-	background-color: #E0FF84;
-}
-
-.ex_highlight_row #example tr.odd:hover td.sorting_3 {
-	background-color: #DBFF70;
-}
-
 
 /*
  * KeyTable
