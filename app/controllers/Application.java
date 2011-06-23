@@ -74,5 +74,9 @@ public class Application extends Controller {
 	public static void myAquarium(Integer id) {
 		render(id);
 	}
+	
+	public static void myProfil() {
+		render();
+	}
 
 }

@@ -11,3 +11,4 @@
 /app/views/.*~
 /public/images/temp/**
 /public/shared/**
+/target/*

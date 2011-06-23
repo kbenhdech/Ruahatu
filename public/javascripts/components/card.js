@@ -59,6 +59,22 @@ require.def("components/card", [ "utils/ajaxJson", "utils/urls", "plugins/jquery
 		$(content).appendTo(id);
 	};	
 	
+	myProfil = function (user, id) {
+		content = "<h1>" + user.pseudo + "</h1>";
+		content += "<table>";
+		content += "</table>";
+		$(content).appendTo(id).attr("id", "userInformations");
+		content = row('user.courriel', user.courriel);
+		content += row('user.nomComplet', user.nomComplet);
+		$(content).appendTo("userInformations");
+		AjaxJson.getJson(URLS.getURL("http://localhost:9001" + user.plus, {}), myProfilMore.rcurry("userInformations"));
+	};
+	
+	myProfilMore = function (userMore, id) {
+		content = row('userMore.nombrePoissons', userMore.nombrePoissons);
+		$(content).appendTo(id);
+	};
+	
 	return {
 		"oneFish" : function (idClass, idFish){
 			AjaxJson.getJson(URLS.getURL(URLS.ONE_FISH_JSON, {"id":idFish}), oneFish.rcurry(idClass));
@@ -70,6 +86,10 @@ require.def("components/card", [ "utils/ajaxJson", "utils/urls", "plugins/jquery
 		
 		"myOneAquarium" : function (idClass, idAquarium){
 			AjaxJson.getJson(URLS.getURL(URLS.MY_ONE_AQUARIUM_JSON, {"id":idAquarium}), myOneAquarium.rcurry(idClass));
+		},
+		
+		"myProfil" : function (idClass){
+			AjaxJson.getJson(URLS.getURL(URLS.MY_PROFIL_JSON, {}), myProfil.rcurry(idClass));
 		}
 	}
 	

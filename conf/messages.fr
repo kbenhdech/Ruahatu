@@ -105,3 +105,6 @@ myAquarium.temperatureEau=Température
 myAquarium.dureteEau=Dureté
 myAquarium.aciditeEau=Acidité
 myAquarium.commentaire=Commentaire
+
+user.courriel=Email
+user.nomComplet=Nom

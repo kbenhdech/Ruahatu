@@ -13,6 +13,7 @@ GET     /my_fish.html                                			Application.myFish
 GET     /my_fishes.html                                			Application.myFishes
 GET     /my_aquarium.html                                		Application.myAquarium
 GET     /my_aquariums.html                            			Application.myAquariums
+GET     /my_profil.html                            				Application.myProfil
 
 # Map static resources from the /app/public folder to the /public path
 GET     /public/                                staticDir:public

@@ -18,6 +18,8 @@ require.def("utils/urls", ["json-template"], function(jsonTemplate) {
 		"MY_ONE_FISH_HTML" : "/my_fish.html?id={id}",
 		"MY_ONE_AQUARIUM_HTML" : "/my_aquarium.html?id={id}",
 		
+		"MY_PROFIL_JSON" : WS_SITE + "/utilisateur/" + sLogin,
+		
 		"getURL" : getURL
 	}
 
