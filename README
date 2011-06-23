@@ -1,0 +1,8 @@
+Utilisation
+===========
+
+* Lancer "Ruahatu -Services" : `play run`
+
+* Lancer "Ruahatu - Client" : `play run`
+
+* L'application est accessible à l'adresse : `http://localhost:9002/`
