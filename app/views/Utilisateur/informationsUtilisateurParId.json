@@ -1,0 +1,6 @@
+#{extends 'cross-domain.json' /}
+{
+   "pseudo": "${utilisateur.pseudo}",
+   "nombreAquariums": "${utilisateur.aquariums.size()}",
+   "nombrePoissons": "${utilisateur.aquaPoissons.size()}",
+}

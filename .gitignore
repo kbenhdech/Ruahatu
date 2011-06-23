@@ -8,3 +8,4 @@
 *.prefs
 /app/views/.*~
 /app/views/Application/.*~
+/target/*

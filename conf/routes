@@ -17,6 +17,7 @@ GET     /poisson/{id}                                       	Poisson.poissonParI
 
 GET     /utilisateurs                                       	Utilisateur.utilisateurs(format:'json') 
 GET     /utilisateur/{pseudo}                                   Utilisateur.utilisateurParId(format:'json') 
+GET     /utilisateur/{pseudo}/informations                      Utilisateur.informationsUtilisateurParId(format:'json') 
 GET     /utilisateur/{pseudo}/poissons                          Utilisateur.poissonsUtilisateur(format:'json') 
 
 GET     /utilisateur/{pseudo}/poisson/{idPoisson}				Utilisateur.poissonUtilisateurParId(format:'json')  

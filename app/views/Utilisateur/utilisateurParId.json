@@ -4,5 +4,6 @@
    "courriel": "${utilisateur.courriel}",
    "pseudo": "${utilisateur.pseudo}",
    "nomComplet": "${utilisateur.nomComplet}",
-   "estAdministrateur": "${utilisateur.estAdministrateur}"
+   "estAdministrateur": "${utilisateur.estAdministrateur}",
+   "plus": "/utilisateur/${utilisateur.pseudo}/informations"
 }

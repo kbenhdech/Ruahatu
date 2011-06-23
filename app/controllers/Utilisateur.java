@@ -35,6 +35,15 @@ public class Utilisateur extends AbstractController {
 		else
 			notFound();
 	}
+	
+	public static void informationsUtilisateurParId(String pseudo) {
+		models.Utilisateur utilisateur = models.Utilisateur.find("byPseudo", pseudo)
+				.<models.Utilisateur> first();
+		if (utilisateur != null)
+			render(utilisateur);
+		else
+			notFound();
+	}
 
 	public static void poissonsUtilisateur(String pseudo) {
 		models.Utilisateur utilisateur = models.Utilisateur.find("byPseudo", pseudo)
