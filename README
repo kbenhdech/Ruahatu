@@ -1,0 +1,15 @@
+Information
+===========
+
+La branche master est actuellement vide.
+
+Une ancienne version du projet est disponible dans la branche `old-version`. Celle-ci est complète.  
+Deux autres branches existent :
+
+* `old-client-submodules` qui était auparavant un repository git à par entière et contenait la partie client du projet
+* `old-services-submodules` qui était auparavant un repository git à par entière et contenait la partie service du projet
+
+Le projet recommencera prochainement, en scala, en utilisant la nouvelle version de play : play 2.0
+
+
+
