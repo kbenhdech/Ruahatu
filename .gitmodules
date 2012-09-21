@@ -1,6 +1,0 @@
-[submodule "client"]
-	path = client
-	url = git@github.com:kbenhdech/Ruahatu---Client.git
-[submodule "services"]
-	path = services
-	url = git@github.com:kbenhdech/Ruahatu---Services.git
