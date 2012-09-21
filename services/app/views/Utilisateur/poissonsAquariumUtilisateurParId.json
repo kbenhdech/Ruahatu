@@ -1,0 +1,44 @@
+#{extends 'cross-domain.json' /}
+[#{list poissons, as:'poisson'}  
+   {
+      "id": "${poisson.id}",
+	  "pseudo": "${poisson.pseudo}",
+	  "dateAchat": "${poisson.dateAchat}",
+	  "dateNaissance": "${poisson.dateNaissance}",
+	  "commentaire": "${poisson.commentaire}",
+	  "poisson":
+	     {
+		 #{if poisson.poisson != null}  
+		    "id": "${poisson.id}",
+			"nomScientifique": "${poisson.poisson.nomScientifique}",
+			"nomCommun": "${poisson.poisson.nomCommun}",
+			"tailleAdulteMin": "${poisson.poisson.tailleAdulteMin}",
+			"tailleAdulteMax": "${poisson.poisson.tailleAdulteMax}",
+			"temperatureMin": "${poisson.poisson.temperatureMin}",
+			"temperatureMax": "${poisson.poisson.temperatureMax}",
+			"aciditeMin": "${poisson.poisson.aciditeMin}",
+			"aciditeMax": "${poisson.poisson.aciditeMax}",
+			"dureteMin": "${poisson.poisson.dureteMin}",
+			"dureteMax": "${poisson.poisson.dureteMax}",
+			"zoneDeVie": "${poisson.poisson.zoneDeVie}",
+			"informationsComplementaire": "${poisson.poisson.informationsComplementaire}",
+			"pays":[
+			        #{list poisson.poisson.pays, as:'pays'}  
+			           "${pays.nom}"${pays_isLast ? '' : ','}
+			        #{/list}
+				   ] 
+         #{/if}
+		 }, 
+      "utilisateur":#{if poisson.utilisateur != null} 
+	                "${poisson.utilisateur.pseudo}"
+					#{/if}
+					#{else}""#{/else},
+	  "aquarium": 
+	     {
+		 #{if poisson.aquarium != null} 
+		    "id": "${poisson.aquarium.id}",
+			"nom": "${poisson.aquarium.nom}"
+         #{/if}
+		 }
+   }${poisson_isLast ? '' : ','}
+#{/list}] 

@@ -1,0 +1,7 @@
+#{extends 'cross-domain.json' /}
+[#{list pays, as:'unPays'}  
+   {
+      "id": "${unPays.id}",
+	  "nom": "${unPays.nom}"
+   }${unPays_isLast ? '' : ','}
+#{/list}] 

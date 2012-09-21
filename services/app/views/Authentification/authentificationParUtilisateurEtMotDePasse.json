@@ -1,0 +1,7 @@
+#{extends 'cross-domain.json' /}
+{
+   "courriel": "${utilisateur.courriel}",
+   "pseudo": "${utilisateur.pseudo}",
+   "nomComplet": "${utilisateur.nomComplet}",
+   "estAdministrateur": "${utilisateur.estAdministrateur}"
+}

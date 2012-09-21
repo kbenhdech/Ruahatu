@@ -1,0 +1,191 @@
+# you describe your data using the YAML notation here
+# and then load them using Fixtures.load("data.yml")
+ 
+ ###############################################################
+#
+#			Pays
+#
+###############################################################
+
+Pays(france):
+   nom: France
+   
+Pays(italie):
+   nom: Italie
+   
+Pays(portugal):
+   nom: Portugal
+
+    
+###############################################################
+#
+#			Familles de poissons
+#
+###############################################################
+
+FamillePoisson(alestiides):
+   nom: "Alestiidés"
+   #poissons: [tetraJauneDuCongo, characinAfricainAuxYeusRouges, tetraRougeDuCongo]
+      
+FamillePoisson(anabantides):
+   nom: "Anabantidés"
+   #poissons: [ctenopomaRaye, quatreYeux]
+
+###############################################################
+#
+#			Poissons
+#
+###############################################################
+   
+Poisson(tetraJauneDuCongo):
+   nomScientifique: "Alestopetersius caudalis"
+   nomCommun: "Tétra jaune du Congo"
+   famillePoisson: alestiides
+   pays: [france, italie, portugal]
+   
+Poisson(characinAfricainAuxYeusRouges):
+   nomScientifique: "Arnoldichthys spilopterus"
+   nomCommun: "Characin africain aux yeus rouges"
+   famillePoisson: alestiides
+   pays: [france]
+   
+Poisson(tetraRougeDuCongo):
+   nomScientifique: "Alestiidés Brycinus imberi"
+   nomCommun: "Tétra rouge du Congo"
+   famillePoisson: 
+   pays: [italie]
+
+Poisson(ctenopomaRaye):
+   nomScientifique: "Microctenopoma fasciolatum"
+   nomCommun: "Ctenopoma rayé"
+   famillePoisson: anabantides 
+   pays: [portugal]
+   
+Poisson(quatreYeux):
+   nomScientifique: "Anablepidés Anableps anableps"
+   nomCommun: "Quatre yeux"
+   famillePoisson: anabantides  
+   
+
+###############################################################
+#
+#			Utilisateur
+#
+###############################################################
+
+Utilisateur(karim): 
+   courriel: "karim.benhdech@gmx.fr"
+   pseudo: "kbenhdech"
+   motDePasse: "kb21"
+   nomComplet: "Karim BENHDECH"
+   estAdministrateur: true
+   
+Utilisateur(asmaa): 
+   courriel: "asmaa.benhdech@gmx.fr"
+   pseudo: "abenhdech"
+   motDePasse: "ab05"
+   nomComplet: "Asmaa BENHDECH"
+   estAdministrateur: false
+ 
+
+###############################################################
+#
+#			Aquarium
+#
+###############################################################
+  
+Aquarium(aquariumAsmaa1):
+   nom: "aquariumAsmaa1"
+   volumeEau:
+   puissanceEclairage:
+   temperatureEau:
+   dureteEau:
+   aciditeEau:
+   commentaire:
+   utilisateur: asmaa
+   
+Aquarium(aquariumAsmaa2):
+   nom: "aquariumAsmaa2"
+   volumeEau:
+   puissanceEclairage:
+   temperatureEau:
+   dureteEau:
+   aciditeEau:
+   commentaire:
+   utilisateur: asmaa
+   
+Aquarium(aquariumKarim1):
+   nom: "aquariumKarim1"
+   volumeEau:
+   puissanceEclairage:
+   temperatureEau:
+   dureteEau:
+   aciditeEau:
+   commentaire:
+   utilisateur: karim
+   
+###############################################################
+#
+#			AquaPoisson
+#
+###############################################################   
+  
+AquaPoisson(aquapoissonAquarium1Asmaa1):  
+   pseudo: "aquapoissonAquarium1Asmaa1"
+   dateAchat:
+   dateNaissance:
+   commentaire:
+   poisson: tetraJauneDuCongo
+   utilisateur: asmaa
+   aquarium: aquariumAsmaa1
+   
+AquaPoisson(aquapoissonAquarium1Asmaa2):  
+   pseudo: "aquapoissonAquarium1Asmaa2"
+   dateAchat:
+   dateNaissance:
+   commentaire:
+   poisson:
+   utilisateur: asmaa
+   aquarium: aquariumAsmaa1
+   
+AquaPoisson(aquapoissonAquarium1Asmaa3):  
+   pseudo: "aquapoissonAquarium1Asmaa3"
+   dateAchat:
+   dateNaissance:
+   commentaire:
+   poisson:
+   utilisateur: asmaa
+   aquarium: aquariumAsmaa1
+   
+AquaPoisson(aquapoissonAquarium1Karim1):  
+   pseudo: "aquapoissonAquarium1Karim1"
+   dateAchat:
+   dateNaissance:
+   commentaire:
+   poisson:
+   utilisateur: karim
+   aquarium: aquariumKarim1
+     
+AquaPoisson(aquapoissonAquarium1Karim2):  
+   pseudo: "aquapoissonAquarium1Karim2"
+   dateAchat:
+   dateNaissance:
+   commentaire:
+   poisson: tetraRougeDuCongo
+   utilisateur: karim
+   aquarium: aquariumKarim1
+
+###############################################################
+#
+#			AccesServicesWeb
+#           clé Cryptée = 8fa4d6829940fdf1a97c6cd6d12614a010bfcdde
+#
+###############################################################   
+AccesServicesWeb(domaine1):  
+   domaine: "localhost"
+   cle: "54864sd4654d89s65d"
+   
+AccesServicesWeb(domaine2):  
+   domaine: "127.0.0.1"
+   cle: "54864sd4654d89s65d"
+   

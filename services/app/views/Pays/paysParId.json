@@ -1,0 +1,5 @@
+#{extends 'cross-domain.json' /}
+{
+   "id": "${pays.id}",
+   "nom": "${pays.nom}"
+}

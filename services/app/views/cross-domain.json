@@ -1,0 +1,10 @@
+#{if callback != null} 
+	${callback}(
+		#{doLayout /}
+	) 
+#{/if} 
+#{else}
+	#{doLayout /}
+#{/else}
+				
+				

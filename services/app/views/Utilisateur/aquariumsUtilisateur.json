@@ -1,0 +1,20 @@
+#{extends 'cross-domain.json' /}
+[#{list aquariums, as:'aquarium'}  
+   {
+      "id": "${aquarium.id}",
+	  "nom": "${aquarium.nom}",
+	  "volumeEau": "${aquarium.volumeEau}",
+	  "puissanceEclairage": "${aquarium.puissanceEclairage}",
+	  "temperatureEau": "${aquarium.temperatureEau}",
+	  "dureteEau": "${aquarium.dureteEau}",
+	  "aciditeEau": "${aquarium.aciditeEau}",
+	  "commentaire": "${aquarium.commentaire}",  
+	  "utilisateur":#{if aquarium.utilisateur != null} 
+	                  "${aquarium.utilisateur.pseudo}"
+	                #{/if}  
+					#{else}""#{/else} 
+   }${aquarium_isLast ? '' : ','}
+#{/list}] 
+
+
+
