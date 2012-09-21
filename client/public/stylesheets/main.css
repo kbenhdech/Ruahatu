@@ -1,0 +1,469 @@
+/*************************************************
+ * 
+ * GENERAL
+ * 
+ ************************************************/
+
+* {margin:0;padding:0;} 
+
+html, body {height: 100%;}
+
+body:before {
+	content:"";
+	height:100%;
+	float:left;
+	width:0;
+	margin-top:-32767px;
+}
+
+body{
+	
+}
+
+a{
+	text-decoration: none;
+	color: #4297D7;
+}
+
+a:hover{
+	text-decoration: underline;
+	color: #4297D7;
+}
+
+
+/*************************************************
+ * 
+ * STRUCTURE
+ * 
+ ************************************************/
+
+#wrapper{
+	min-height: 100%;
+}
+
+#header{
+	background-image: url(../images/header/header_bg.png);
+	background-repeat: repeat-x;
+	height: 100px;
+	color: white;
+	font-weight: bold;
+	padding-left: 52px;
+}
+
+#header img{
+	margin: 20px 0px 5px 0px;
+}
+
+#header_button {
+	border: 0px;	
+}
+
+#menu{
+	background-color: white;
+	height: 50px;
+}
+
+#menu a{
+	color: white;
+	display: block;
+	padding: 5px;
+	float: left;
+}
+
+#menu a:hover{
+	backgound-color: #157caf;
+	font-weight: bold;
+}
+
+#menu a span{
+	position: relative;
+	color: white;
+	left: -100px;
+	top: -25px;
+	font-weight: bold;
+}
+
+#main{
+	overflow:auto;
+	padding-bottom: 150px;
+	margin-left: 100px;
+	margin-top: 20px;
+}
+
+#footer{
+	position: relative;
+	margin-top: -150px;
+	height: 150px;
+	clear:both;
+	background-image: url(../images/footer/footer.png);
+}
+
+/*************************************************
+ * 
+ * TABLE (example)
+ * 
+ ************************************************/
+
+#example_wrapper{
+	margin: 10px 0px 40px 0px;
+	width: 100%;
+	background-image: url(../images/datatable/table_header_blue.png);
+	border: solid 1px #4297D7;
+	color: white;
+	font-weight: bold;
+	min-height: 0;
+}
+
+#example_wrapper input, #example_wrapper select{
+	border: solid 1px #4297D7;
+}
+
+#example_length{
+	float: left;
+	width: 40%;
+	margin: 5px;
+}
+
+#example_filter{
+	float: right;
+	width: 40%;
+	margin: 5px;
+}
+
+table#example{
+	border-collapse: collapse;
+	border: solid 0px #4297D7;
+	clear: both; 
+	width: 100%;
+	margin-top: 5px;
+	margin-bottom: 2px;
+	color: black;
+	font-weight: normal;
+}
+
+table#example thead{
+	background-image: url(../images/datatable/table_sub_header_blue.png);
+	color: #4297D7
+}
+
+table#example td{
+	padding: 5px;
+}
+
+table#example tr.odd td{
+	background-color: white;
+	border-top: solid 1px #4297D7;
+}
+
+table#example tr.even td{
+	background-color: white;
+	border-top: solid 1px #4297D7;
+}
+
+#example_info{
+	padding: 5px;
+	marging: 0px;
+	color: #4297D7;
+	font-weight: bold;
+}
+
+#example_paginate{
+	padding: 4px;
+	marging: 0px;
+	font-weight: bold;
+	color: #4297D7;
+}
+
+#example_wrapper .paginate_disabled_previous {
+	background-image: url(../images/datatable/previous_disabled.png);
+}
+
+#example_wrapper .paginate_enabled_previous {
+	background-image: url(../images/datatable/previous.png);
+}
+
+#example_wrapper .paginate_disabled_next {
+	background-image: url(../images/datatable/next_disabled.png);
+}
+
+#example_wrapper .paginate_enabled_next {
+	background-image: url(../images/datatable/next.png);
+}
+
+/*************************************************
+ * 
+ * TABLE (myAquariums)
+ * 
+ ************************************************/
+
+#myAquariums_wrapper{
+	margin: 10px 0px 40px 0px;
+	width: 100%;
+	background-image: url(../images/datatable/table_header_blue.png);
+	border: solid 1px #4297D7;
+	color: white;
+	font-weight: bold;
+	min-height: 0;
+}
+
+#myAquariums_wrapper input, #myAquariums_wrapper select{
+	border: solid 1px #4297D7;
+}
+
+#myAquariums_length{
+	float: left;
+	width: 40%;
+	margin: 5px;
+}
+
+#myAquariums_filter{
+	float: right;
+	width: 40%;
+	margin: 5px;
+}
+
+table#myAquariums{
+	border-collapse: collapse;
+	border: solid 0px #4297D7;
+	clear: both; 
+	width: 100%;
+	margin-top: 5px;
+	margin-bottom: 2px;
+	color: black;
+	font-weight: normal;
+}
+
+table#myAquariums thead{
+	background-image: url(../images/datatable/table_sub_header_blue.png);
+	color: #4297D7
+}
+
+table#myAquariums td{
+	padding: 5px;
+}
+
+table#myAquariums tr.odd td{
+	background-color: white;
+	border-top: solid 1px #4297D7;
+}
+
+table#myAquariums tr.even td{
+	background-color: white;
+	border-top: solid 1px #4297D7;
+}
+
+#myAquariums_info{
+	padding: 5px;
+	marging: 0px;
+	color: #4297D7;
+	font-weight: bold;
+}
+
+#myAquariums_paginate{
+	padding: 4px;
+	marging: 0px;
+	font-weight: bold;
+	color: #4297D7;
+}
+
+#myAquariums_wrapper .paginate_disabled_previous {
+	background-image: url(../images/datatable/previous_disabled.png);
+}
+
+#myAquariums_wrapper .paginate_enabled_previous {
+	background-image: url(../images/datatable/previous.png);
+}
+
+#myAquariums_wrapper .paginate_disabled_next {
+	background-image: url(../images/datatable/next_disabled.png);
+}
+
+#myAquariums_wrapper .paginate_enabled_next {
+	background-image: url(../images/datatable/next.png);
+}
+
+/*************************************************
+ * 
+ * TABLE (myFishes)
+ * 
+ ************************************************/
+
+#myFishes_wrapper{
+	margin: 10px 0px 40px 0px;
+	width: 100%;
+	background-image: url(../images/datatable/table_header_blue.png);
+	border: solid 1px #4297D7;
+	color: white;
+	font-weight: bold;
+	min-height: 0;
+}
+
+#myFishes_wrapper input, #myFishes_wrapper select{
+	border: solid 1px #4297D7;
+}
+
+#myFishes_length{
+	float: left;
+	width: 40%;
+	margin: 5px;
+}
+
+#myFishes_filter{
+	float: right;
+	width: 40%;
+	margin: 5px;
+}
+
+table#myFishes{
+	border-collapse: collapse;
+	border: solid 0px #4297D7;
+	clear: both; 
+	width: 100%;
+	margin-top: 5px;
+	margin-bottom: 2px;
+	color: black;
+	font-weight: normal;
+}
+
+table#myFishes thead{
+	background-image: url(../images/datatable/table_sub_header_blue.png);
+	color: #4297D7
+}
+
+table#myFishes td{
+	padding: 5px;
+}
+
+table#myFishes tr.odd td{
+	background-color: white;
+	border-top: solid 1px #4297D7;
+}
+
+table#myFishes tr.even td{
+	background-color: white;
+	border-top: solid 1px #4297D7;
+}
+
+#myFishes_info{
+	padding: 5px;
+	marging: 0px;
+	color: #4297D7;
+	font-weight: bold;
+}
+
+#myFishes_paginate{
+	padding: 4px;
+	marging: 0px;
+	font-weight: bold;
+	color: #4297D7;
+}
+
+#myFishes_wrapper .paginate_disabled_previous {
+	background-image: url(../images/datatable/previous_disabled.png);
+}
+
+#myFishes_wrapper .paginate_enabled_previous {
+	background-image: url(../images/datatable/previous.png);
+}
+
+#myFishes_wrapper .paginate_disabled_next {
+	background-image: url(../images/datatable/next_disabled.png);
+}
+
+#myFishes_wrapper .paginate_enabled_next {
+	background-image: url(../images/datatable/next.png);
+}
+
+/*************************************************
+ * 
+ * CARD
+ * 
+ ************************************************/
+
+#poisson table{
+ 	margin: 10px;
+ }
+ 
+#poisson table tr td{
+ 	padding: 5px;
+ }
+ 
+/*************************************************
+ * 
+ * SECURE
+ * 
+ ************************************************/ 
+#header #login{
+	float: right;
+	background-color: #224466;
+	margin: 10px;
+	margin-top: 0px;
+	padding: 5px;
+	font-weight: normal;
+	border: solid 1px white;
+	border-top: 0px;
+}
+
+#login form {
+    text-align: left;
+}
+
+#header #login input[type=text], #header #login input[type=password]{
+	width: 70px;	
+}
+
+#header #login button[type=submit]{
+	background-image: url(../images/login.png);
+	background-repeat: no-repeat;
+	display: block;
+	width: 32px;
+	height: 25px;
+	background-color: inherit;
+	float: right;
+	border: 0px;
+	cursor: pointer;
+	margin-top: 5px;
+}
+
+#header #login a#button{
+	display: block;
+	width: 25px;
+	height: 25px;
+	background-color: inherit;
+	float: right;
+	border: 0px;
+	cursor: pointer;
+	margin-top: 5px;
+}
+
+#header #login a#button{
+	float: right;
+	width: 25px;
+	height: 25px;
+	border: 0px;
+	text-decoration: underline;	
+	margin-left: 3px;
+}
+
+#header #login a#button img{
+	background-color: #224466;
+	border: 1px solid #224466;
+	padding: 0px;
+	margin: 0px;
+	border: 0px;
+}
+
+#login .error, #login .success  {
+    font-size: 12px;
+    text-align: center;
+    margin-bottom: 3px;
+    padding: 5px;
+}
+
+#login .error {
+    background: #c00 !important;
+}
+
+#login .success {
+    background: #008800 !important;
+}

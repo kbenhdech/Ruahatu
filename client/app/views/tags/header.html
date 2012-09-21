@@ -1,0 +1,16 @@
+<div id="login">
+	
+	#{if session.LOGIN != null}
+		&{'header.hello'} ${session.LOGIN}.
+		<a id="button" href="@{Secure.logout()}" title="&{'login.logout'}"><img src="@{'/public/images/logout.png'}" /></a>
+	#{/if}
+	
+	#{else}
+		#{login /}
+	#{/else}
+	
+</div>
+
+<a href="/" id="header_button" ><img src="@{'/public/images/header/ruahatu.png'}" /></a><br />
+&{'header.msg'}
+

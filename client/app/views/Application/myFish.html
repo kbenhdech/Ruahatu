@@ -1,0 +1,20 @@
+#{extends 'main.html' /}
+#{set title:'Ruahatu - Mon poisson' /}
+
+#{set 'moreScripts'}
+	<script language="Javascript" type="text/javascript" />
+		require(["components/card", "utils/urls"], function(Card, URLS) {
+				$(document).ready(function() {
+					Card.myOneFish("#myFish", ${id});
+				});
+			});	
+	</script> 
+#{/set}	
+
+<div id="myFish">
+		
+</div>
+
+
+    
+ 

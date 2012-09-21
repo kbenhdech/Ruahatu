@@ -1,0 +1,27 @@
+#{extends 'main.html' /}
+#{set title:'Ruahatu - Tableau de bord' /}
+
+#{set 'moreScripts'}
+	<script language="Javascript" type="text/javascript" />
+		require(["plugins/jquery-ui.custom.min", "components/table", "components/card"], function(jqueryUI, Table, Card) {
+				$(document).ready(function() {
+					Table.myFishes("#myFishes");//init
+				    $('#tabs').tabs({
+						select: function(event, ui) {
+       						if(ui.index == 0) Table.myFishes("#myFishes");
+							if(ui.index == 1) Table.myAquariums("#myAquariums");
+							if(ui.index == 2) Card.myProfil("#myProfil");
+   						}
+					});
+				});
+			});	
+	</script> 
+#{/set}	
+
+<div id="tabs">
+     <ul>
+         <li><a href="my_fishes.html"><span>Mes poissons</span></a></li>
+         <li><a href="my_aquariums.html"><span>Mes aquariums</span></a></li>
+		 <li><a href="my_profil.html"><span>Mon profil</span></a></li>
+     </ul>
+</div>

@@ -1,0 +1,110 @@
+secure.title=
+secure.username=Pseudo:
+secure.password=Mot de passe:
+secure.remember=Se rappelez de moi
+secure.signin=Se connecter
+secure.error=Le pseudo et/ou le mot de passe sont incorrectes.
+secure.logout=Vous avez été déconnecté
+
+# For use in JavaExtensions.since tag
+since.seconds = %s second%s ago
+since.minutes = %s minute%s ago
+since.hours   = %s hour%s ago
+since.days    = %s day%s ago
+since.months  = %s month%s ago
+since.years   = %s year%s ago
+since.format  = MMM d, yyyy
+
+# Validation messages
+validation.required=est requis
+validation.minSize=Minimum size is %2$d
+validation.maxSize=Maximum size is %2$d
+validation.email=L'émail est invalide
+validation.range=Not in the range %2$d through %3$d
+validation.min=Cannot be lower than %2$d
+validation.max=Cannot be greater than %2$d
+validation.match=Must match %2$s
+validation.isTrue=Must be checked
+validation.equals=Must be equal to &{%2$s}
+validation.invalid=a une valeur incorrecte
+validation.future=Must be in the future
+validation.after=Must be after %2$s
+validation.past=Must be in the past
+validation.before=Must be before %2$s
+validation.object=Validation failed
+validation.notFound=Object not found for id %2$s
+validation.url=n'est pas une URL valide
+
+logger.info.access.error=Le couple login/mot de passe (%s/%s) que vous avez entré est incorrecte.
+
+header.hello=Bonjour
+
+login.inscription=S'inscrire
+login.logout=Se déconnecter
+
+registration.pseudo=Pseudonyme
+registration.email=Email
+registration.password=Mot de passe
+registration.password.confirmation=Mot de passe(confirmation)
+registration.name=Nom
+registration.submit=Créer votre compte
+
+registration.error.pseudo.empty=Le pseudo doit être renseigné
+registration.error.pseudo.already.in.use=Le pseudo saisie est dèjà utilisé par un autre membre
+registration.error.email.empty=L'adresse email doit être renseigné
+registration.error.email.already.in.use=L'adresse email saisie est dèjà utilisé par un autre membre
+registration.error.email.not.valid=L'adresse email n'est pas valide
+registration.error.password.empty=Le mot de passe doit être rensigné
+registration.error.password.not.identical=Les mot de passes ne sont pas identiques
+
+header.msg=Gérez vos aqariums et vos poissons avec plus de précissions
+
+datatable.sFirst=Première page
+datatable.sLast=Dernière page
+datatable.sNext=Prochaine page
+datatable.sPrevious=Précédente page
+datatable.sEmptyTable=Il n'y a aucune données en table
+datatable.sInfo=_TOTAL_ lignes de _START_ à _END_
+datatable.sInfoEmpty=Auncune informations à montrer
+datatable.sInfoFiltered= - Filtre sur _MAX_ lignes
+datatable.sInfoPostFix=<span></span> 
+datatable.sLengthMenu=Voir <select><option value="25">25</option><option value="50">50</option><option value="75">75</option><option value="100">100</option></select> lignes
+datatable.sProcessing=En cours de chargement
+datatable.sSearch=Recherche:
+datatable.sZeroRecords=Auncune informations à montrer
+
+menu.home=Accueil
+menu.fishes=Poissons
+menu.plants=Plantes
+menu.my.board=Espace perso
+
+poisson.id=Identifiant
+poisson.nomScientifique=Nom scientifique
+poisson.nomCommun=Nom commun
+poisson.famille=Famille
+poisson.pays=Pays
+poisson.tailleAdulteMin=Taille adulte minimum
+poisson.tailleAdulteMax=Taille adulte maximum
+poisson.temperatureMin=Température minimum
+poisson.temperatureMax=Température maximum
+poisson.aciditeMin=Acidité minimum
+poisson.aciditeMax=Acidité maximum
+poisson.dureteMin=Dureté minimum
+poisson.dureteMax=Dureté maximum
+poisson.zoneDeVie=Zone de vie
+poisson.informationsComplementaire=Informations complémentaire
+
+myPoisson.pseudo=Pseudo
+myPoisson.dateAchat=Date d'achat
+myPoisson.dateNaissance=Date de naissance
+myPoisson.commentaire=Commentaire
+
+myAquarium.nom=Nom
+myAquarium.volumeEau=Volume
+myAquarium.temperatureEau=Température
+myAquarium.dureteEau=Dureté
+myAquarium.aciditeEau=Acidité
+myAquarium.commentaire=Commentaire
+
+user.courriel=Email
+user.nomComplet=Nom

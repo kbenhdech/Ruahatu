@@ -1,0 +1,14 @@
+
+/tmp/*
+/app/views/Application/.*~
+/app/views/tags/.*~
+/eclipse/**
+/test/selenium/.*~
+/app/views/.*~
+/.classpath
+/.project
+/.settings/*.prefs
+/app/views/.*~
+/public/images/temp/**
+/public/shared/**
+/target/*
