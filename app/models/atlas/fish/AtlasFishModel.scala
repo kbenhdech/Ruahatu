@@ -4,6 +4,7 @@ import play.api.Play.current
 import beans.atlas.fish.AtlasFish
 import play.api.db.slick.DB
 import play.api.db.slick.Config.driver.simple._
+import beans.types.{NOT_EXIST, ALREADY_EXIST, AtlasFishErrorType}
 
 /**
  * Classe de gestion  de la  persistance du type AtlasFish.
@@ -58,6 +59,30 @@ object AtlasFishModel extends Table[AtlasFish]("ATLAS_FISH") {
   def insert(atlasFish: AtlasFish) {
     DB.withSession { implicit session =>
       AtlasFishModel.autoInc.insert(atlasFish)
+    }
+  }
+
+  /**
+   * @param scientificName
+   * @return Un boolean qui indique s'il y a eu suppression ou non.
+   */
+  def deleteByScientificName(scientificName: String): Option[AtlasFishErrorType] = DB.withTransaction { implicit session =>
+    AtlasFishModel.findByScientificName(scientificName) match {
+      case Some(atlasFish) => AtlasFishModel.where(_.scientificName === scientificName).delete; None
+      case _ => Some(NOT_EXIST)
+    }
+  }
+
+  /**
+   * Créé un poisson dans l'Atlas.
+   *
+   * @param atlasFish
+   * @return
+   */
+  def create(atlasFish: AtlasFish): (Option[AtlasFishErrorType], AtlasFish) = DB.withTransaction { implicit session =>
+    AtlasFishModel.findByScientificName(atlasFish.scientificName) match {
+      case Some(atlasFish) => ( Some(ALREADY_EXIST), atlasFish )
+      case _ => insert(atlasFish); ( None, AtlasFishModel.findByScientificName(atlasFish.scientificName).get )
     }
   }
 

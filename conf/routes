@@ -13,6 +13,8 @@ GET     /api-docs.json/atlas/fish        controllers.ApiHelpController.getResour
 # AtlasFish
 #GET     /atlas/fish/:id                 controllers.AtlasFishController.getAtlasFishById(id: Long)
 GET      /atlas/fish/:scientificName     controllers.AtlasFishController.getAtlasFishByScientificName(scientificName: String)
+DELETE   /atlas/fish/:scientificName     controllers.AtlasFishController.deleteAtlasFishByScientificName(scientificName: String)
+POST     /atlas/fish                     controllers.AtlasFishController.createAtlasFishByScientificName()
 
 # Home page
 GET      /                               controllers.Application.index
