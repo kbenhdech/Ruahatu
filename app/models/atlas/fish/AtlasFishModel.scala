@@ -13,10 +13,13 @@ import beans.types.{NOT_EXIST, ALREADY_EXIST, AtlasFishErrorType}
  * @author Karim BENHDECH
  */
 object AtlasFishModel extends Table[AtlasFish]("ATLAS_FISH") {
+
+  // Définition des champs
   def id = column[Long]("ATLAS_FISH_ID", O.PrimaryKey, O.AutoInc)
   def scientificName = column[String]("SCIENTIFIC_NAME", O.NotNull)
   def commonName  = column[String]("COMMON_NAME", O.NotNull)
 
+  // Définition des indexes
   def idx = index("ATLAS_FISH_INDEX_NAME", (scientificName), unique = true)
 
   def * = id.? ~ scientificName ~ commonName <> (AtlasFish.apply _, AtlasFish.unapply _)
@@ -30,6 +33,8 @@ object AtlasFishModel extends Table[AtlasFish]("ATLAS_FISH") {
   val byScientificName = createFinderBy(_.scientificName)
 
   /**
+   * Recherche d'un poisson dans l'Atlas par son nom ID.
+   *
    * @param id
    * @return Un poisson de l'Atlas par son ID.
    */
@@ -38,6 +43,8 @@ object AtlasFishModel extends Table[AtlasFish]("ATLAS_FISH") {
   }
 
   /**
+   * Recherche d'un poisson dans l'Atlas par son nom sicentifique.
+   *
    * @param scientificName
    * @return Un poisson de l'Atlas par son nom scientifique.
    */
@@ -53,7 +60,8 @@ object AtlasFishModel extends Table[AtlasFish]("ATLAS_FISH") {
   }
 
   /**
-   * Insertion d'un poisson de l'Atlas.
+   * Insertion d'un poisson dans l'Atlas.
+   *
    * @param atlasFish
    */
   def insert(atlasFish: AtlasFish) {
@@ -63,18 +71,7 @@ object AtlasFishModel extends Table[AtlasFish]("ATLAS_FISH") {
   }
 
   /**
-   * @param scientificName
-   * @return Un boolean qui indique s'il y a eu suppression ou non.
-   */
-  def deleteByScientificName(scientificName: String): Option[AtlasFishErrorType] = DB.withTransaction { implicit session =>
-    AtlasFishModel.findByScientificName(scientificName) match {
-      case Some(atlasFish) => AtlasFishModel.where(_.scientificName === scientificName).delete; None
-      case _ => Some(NOT_EXIST)
-    }
-  }
-
-  /**
-   * Créé un poisson dans l'Atlas.
+   * Création d'un poisson dans l'Atlas.
    *
    * @param atlasFish
    * @return
@@ -82,7 +79,23 @@ object AtlasFishModel extends Table[AtlasFish]("ATLAS_FISH") {
   def create(atlasFish: AtlasFish): (Option[AtlasFishErrorType], AtlasFish) = DB.withTransaction { implicit session =>
     AtlasFishModel.findByScientificName(atlasFish.scientificName) match {
       case Some(atlasFish) => ( Some(ALREADY_EXIST), atlasFish )
-      case _ => insert(atlasFish); ( None, AtlasFishModel.findByScientificName(atlasFish.scientificName).get )
+      case None => {
+        insert(atlasFish)
+        ( None, AtlasFishModel.findByScientificName(atlasFish.scientificName).get )
+      }
+    }
+  }
+
+  /**
+   * Suppression d'un poisson dans l'Atlas.
+   *
+   * @param scientificName
+   * @return Une Option indiquant s'il y a eu erreur ou non..
+   */
+  def deleteByScientificName(scientificName: String): Option[AtlasFishErrorType] = DB.withTransaction { implicit session =>
+    AtlasFishModel.findByScientificName(scientificName) match {
+      case Some(atlasFish) => AtlasFishModel.where(_.scientificName === scientificName).delete; None
+      case _ => Some(NOT_EXIST)
     }
   }
 
