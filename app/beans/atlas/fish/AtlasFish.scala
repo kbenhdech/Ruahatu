@@ -6,15 +6,15 @@ package beans.atlas.fish
  * @author Karim BENHDECH
  */
 case class AtlasFish(
-   id: Option[Long],
+   var id: Option[Long],
 
    /**
     * Nom scientifique.
     */
-   scientificName: String,
+   var scientificName: String,
 
    /**
     * Nom commun.
     */
-   commonName: String
+   var commonName: String
 )

@@ -5,7 +5,7 @@ import play.api.test._
 import play.api.test.Helpers._
 import models.atlas.fish.AtlasFishModel
 import beans.atlas.fish.AtlasFish
-import beans.types.ALREADY_EXIST
+import beans.types.{NOT_EXIST, ALREADY_EXIST}
 
 class AtlasFishModelTest extends Specification {
 
@@ -63,7 +63,7 @@ class AtlasFishModelTest extends Specification {
 
   "AtlasFish create" should {
 
-    "creer un poissons dans l'Atlas si le nom scientifique est inexistant et le retroouver par la suite" in {
+    "creer un poisson dans l'Atlas si le nom scientifique est inexistant et le retroouver par la suite" in {
       running(FakeApplication(additionalConfiguration = inMemoryDatabase())) {
         val atlasFish = new AtlasFish(None, "nouveau nom scientifique", "nouveau nom commun")
         val atlasFishErrorTypeOption = AtlasFishModel.create(atlasFish)._1
@@ -83,6 +83,58 @@ class AtlasFishModelTest extends Specification {
 
         atlasFishErrorTypeOption._1 must equalTo(Some(ALREADY_EXIST))
         atlasFishErrorTypeOption._1.get must equalTo(ALREADY_EXIST)
+      }
+    }
+
+  }
+
+  "AtlasFish deleteByScientificName" should {
+
+    "supprimer un poisson avec un nom scientifique inexistant dans l'Atlas" in {
+      running(FakeApplication(additionalConfiguration = inMemoryDatabase())) {
+        val atlasFishErrorTypeOption = AtlasFishModel.deleteByScientificName("nom scientifique inexistant")
+
+        atlasFishErrorTypeOption must equalTo(Some(NOT_EXIST))
+        atlasFishErrorTypeOption.get must equalTo(NOT_EXIST)
+      }
+    }
+
+    "supprimer un poisson avec un nom scientifique existant dans l'Atlas" in {
+      running(FakeApplication(additionalConfiguration = inMemoryDatabase())) {
+        val numberAtlasFishBeforeDelete = AtlasFishModel.count
+        val atlasFishErrorTypeOption = AtlasFishModel.deleteByScientificName("Nom scientifique 1")
+
+        atlasFishErrorTypeOption must equalTo(None)
+
+        val numberAtlasFishAfterDelete = AtlasFishModel.count
+        numberAtlasFishAfterDelete must equalTo(numberAtlasFishBeforeDelete-1)
+      }
+    }
+
+  }
+
+  "AtlasFish update" should {
+
+    "modification d'un poisson avec un ID inexistant dans l'Atlas" in {
+      running(FakeApplication(additionalConfiguration = inMemoryDatabase())) {
+        val atlasFish = new AtlasFish(Some(1000), "Nom scientifique 1000", "Nom commun 1000")
+        val atlasFishErrorTypeOption = AtlasFishModel.update(atlasFish)
+
+        atlasFishErrorTypeOption must equalTo(Some(NOT_EXIST))
+        atlasFishErrorTypeOption.get must equalTo(NOT_EXIST)
+      }
+    }
+
+    "modification d'un poisson avec un ID existant dans l'Atlas" in {
+      running(FakeApplication(additionalConfiguration = inMemoryDatabase())) {
+        val Some(atlasFishBeforeUpdate) = AtlasFishModel.findByScientificName("Nom scientifique 1")
+        atlasFishBeforeUpdate.commonName = "Nouveau nom commun"
+        val atlasFishErrorTypeOption = AtlasFishModel.update(atlasFishBeforeUpdate)
+
+        atlasFishErrorTypeOption must equalTo(None)
+
+        val Some(atlasFishAfterUpdate) = AtlasFishModel.findByScientificName("Nom scientifique 1")
+        atlasFishAfterUpdate.commonName must equalTo("Nouveau nom commun")
       }
     }
 

@@ -16,13 +16,15 @@ object AtlasFishModel extends Table[AtlasFish]("ATLAS_FISH") {
 
   // Définition des champs
   def id = column[Long]("ATLAS_FISH_ID", O.PrimaryKey, O.AutoInc)
+
   def scientificName = column[String]("SCIENTIFIC_NAME", O.NotNull)
-  def commonName  = column[String]("COMMON_NAME", O.NotNull)
+
+  def commonName = column[String]("COMMON_NAME", O.NotNull)
 
   // Définition des indexes
   def idx = index("ATLAS_FISH_INDEX_NAME", (scientificName), unique = true)
 
-  def * = id.? ~ scientificName ~ commonName <> (AtlasFish.apply _, AtlasFish.unapply _)
+  def * = id.? ~ scientificName ~ commonName <>(AtlasFish.apply _, AtlasFish.unapply _)
 
   def autoInc = * returning id
 
@@ -38,8 +40,9 @@ object AtlasFishModel extends Table[AtlasFish]("ATLAS_FISH") {
    * @param id
    * @return Un poisson de l'Atlas par son ID.
    */
-  def findById(id: Long): Option[AtlasFish] = DB.withSession { implicit session =>
-    AtlasFishModel.byId(id).firstOption
+  def findById(id: Long): Option[AtlasFish] = DB.withSession {
+    implicit session =>
+      AtlasFishModel.byId(id).firstOption
   }
 
   /**
@@ -48,15 +51,17 @@ object AtlasFishModel extends Table[AtlasFish]("ATLAS_FISH") {
    * @param scientificName
    * @return Un poisson de l'Atlas par son nom scientifique.
    */
-  def findByScientificName(scientificName: String): Option[AtlasFish] = DB.withSession { implicit session =>
-    AtlasFishModel.byScientificName(scientificName).firstOption
+  def findByScientificName(scientificName: String): Option[AtlasFish] = DB.withSession {
+    implicit session =>
+      AtlasFishModel.byScientificName(scientificName).firstOption
   }
 
   /**
    * @return Le nombre de poissons dans l'Atlas.
    */
-  def count: Int = DB.withSession { implicit session =>
-    Query(AtlasFishModel.length).first
+  def count: Int = DB.withSession {
+    implicit session =>
+      Query(AtlasFishModel.length).first
   }
 
   /**
@@ -65,8 +70,9 @@ object AtlasFishModel extends Table[AtlasFish]("ATLAS_FISH") {
    * @param atlasFish
    */
   def insert(atlasFish: AtlasFish) {
-    DB.withSession { implicit session =>
-      AtlasFishModel.autoInc.insert(atlasFish)
+    DB.withSession {
+      implicit session =>
+        AtlasFishModel.autoInc.insert(atlasFish)
     }
   }
 
@@ -76,14 +82,15 @@ object AtlasFishModel extends Table[AtlasFish]("ATLAS_FISH") {
    * @param atlasFish
    * @return
    */
-  def create(atlasFish: AtlasFish): (Option[AtlasFishErrorType], AtlasFish) = DB.withTransaction { implicit session =>
-    AtlasFishModel.findByScientificName(atlasFish.scientificName) match {
-      case Some(atlasFish) => ( Some(ALREADY_EXIST), atlasFish )
-      case None => {
-        insert(atlasFish)
-        ( None, AtlasFishModel.findByScientificName(atlasFish.scientificName).get )
+  def create(atlasFish: AtlasFish): (Option[AtlasFishErrorType], AtlasFish) = DB.withTransaction {
+    implicit session =>
+      AtlasFishModel.findByScientificName(atlasFish.scientificName) match {
+        case Some(atlasFish) => (Some(ALREADY_EXIST), atlasFish)
+        case None => {
+          insert(atlasFish)
+          (None, AtlasFishModel.findByScientificName(atlasFish.scientificName).get)
+        }
       }
-    }
   }
 
   /**
@@ -92,11 +99,29 @@ object AtlasFishModel extends Table[AtlasFish]("ATLAS_FISH") {
    * @param scientificName
    * @return Une Option indiquant s'il y a eu erreur ou non..
    */
-  def deleteByScientificName(scientificName: String): Option[AtlasFishErrorType] = DB.withTransaction { implicit session =>
-    AtlasFishModel.findByScientificName(scientificName) match {
-      case Some(atlasFish) => AtlasFishModel.where(_.scientificName === scientificName).delete; None
-      case _ => Some(NOT_EXIST)
-    }
+  def deleteByScientificName(scientificName: String): Option[AtlasFishErrorType] = DB.withTransaction {
+    implicit session =>
+      AtlasFishModel.findByScientificName(scientificName) match {
+        case Some(atlasFish) => AtlasFishModel.where(_.scientificName === scientificName).delete; None
+        case _ => Some(NOT_EXIST)
+      }
+  }
+
+  /**
+   * Modification d'un poisson dans l'Atlas.
+   *
+   * @param atlasFish
+   * @return Une Option indiquant s'il y a eu erreur ou non..
+   */
+  def update(atlasFish: AtlasFish): Option[AtlasFishErrorType] = DB.withTransaction {
+    implicit session =>
+      AtlasFishModel.findById(atlasFish.id.getOrElse(0L)) match {
+        case Some(atlasFish) => {
+          AtlasFishModel.where(_.id === atlasFish.id.get).update(atlasFish)
+          None
+        }
+        case _ => Some(NOT_EXIST)
+      }
   }
 
 }
