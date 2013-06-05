@@ -77,6 +77,20 @@ object AtlasFishModel extends Table[AtlasFish]("ATLAS_FISH") {
   }
 
   /**
+   * Suppression d'un poisson dans l'Atlas.
+   *
+   * @param scientificName
+   * @return Une Option indiquant s'il y a eu erreur ou non.
+   */
+  def deleteByScientificName(scientificName: String): Option[AtlasFishErrorType] = DB.withTransaction {
+    implicit session =>
+      AtlasFishModel.findByScientificName(scientificName) match {
+        case Some(atlasFish) => AtlasFishModel.where(_.scientificName === scientificName).delete; None
+        case _ => Some(NOT_EXIST)
+      }
+  }
+
+  /**
    * Création d'un poisson dans l'Atlas.
    *
    * @param atlasFish
@@ -94,29 +108,15 @@ object AtlasFishModel extends Table[AtlasFish]("ATLAS_FISH") {
   }
 
   /**
-   * Suppression d'un poisson dans l'Atlas.
-   *
-   * @param scientificName
-   * @return Une Option indiquant s'il y a eu erreur ou non..
-   */
-  def deleteByScientificName(scientificName: String): Option[AtlasFishErrorType] = DB.withTransaction {
-    implicit session =>
-      AtlasFishModel.findByScientificName(scientificName) match {
-        case Some(atlasFish) => AtlasFishModel.where(_.scientificName === scientificName).delete; None
-        case _ => Some(NOT_EXIST)
-      }
-  }
-
-  /**
    * Modification d'un poisson dans l'Atlas.
    *
    * @param atlasFish
-   * @return Une Option indiquant s'il y a eu erreur ou non..
+   * @return Une Option indiquant s'il y a eu erreur ou non.
    */
   def update(atlasFish: AtlasFish): Option[AtlasFishErrorType] = DB.withTransaction {
     implicit session =>
       AtlasFishModel.findById(atlasFish.id.getOrElse(0L)) match {
-        case Some(atlasFish) => {
+        case Some(atlasFishRetrieved) => {
           AtlasFishModel.where(_.id === atlasFish.id.get).update(atlasFish)
           None
         }
