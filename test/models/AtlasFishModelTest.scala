@@ -107,7 +107,7 @@ class AtlasFishModelTest extends Specification {
         atlasFishErrorTypeOption must equalTo(None)
 
         val numberAtlasFishAfterDelete = AtlasFishModel.count
-        numberAtlasFishAfterDelete must equalTo(numberAtlasFishBeforeDelete-1)
+        numberAtlasFishAfterDelete must equalTo(numberAtlasFishBeforeDelete - 1)
       }
     }
 

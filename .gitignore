@@ -1,10 +1,13 @@
 logs
-project/project
-project/target
 target
 tmp
-.history
 dist
+
+project/project
+project/target
+
+.history
+
 /.idea
 /*.iml
 /out
@@ -13,3 +16,6 @@ dist
 /.project
 /RUNNING_PID
 /.settings
+
+ruahatu.h2.db
+ruahatu.trace.db

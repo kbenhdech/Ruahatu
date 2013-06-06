@@ -6,6 +6,10 @@ package beans.atlas.fish
  * @author Karim BENHDECH
  */
 case class AtlasFish(
+
+   /**
+    * Identifiant.
+    */
    var id: Option[Long],
 
    /**

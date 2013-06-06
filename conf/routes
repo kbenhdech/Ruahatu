@@ -2,23 +2,25 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-# Swagger
-GET     /api-docs.json                   controllers.ApiHelpController.getResources
-GET     /api-docs.json/atlas/fish        controllers.ApiHelpController.getResource(path = "/api-docs.json/atlas/fish")
-#GET    /admin.json/health               controllers.HealthController.getHealth()
-#GET    /admin.xml/health                controllers.HealthController.getHealth()
-#GET    /admin.json/ping                 controllers.HealthController.ping()
-#GET    /admin.xml/ping                  controllers.HealthController.ping()
+# Swagger configuration générale
+GET      /api-docs.json                    controllers.ApiHelpController.getResources
+#GET      /admin.json/health                controllers.HealthController.getHealth()
+#GET      /admin.xml/health                 controllers.HealthController.getHealth()
+#GET      /admin.json/ping                  controllers.HealthController.ping()
+#GET      /admin.xml/ping                   controllers.HealthController.ping()
+
+# Swagger configuration controllers
+GET      /api-docs.json/atlas/fish         controllers.ApiHelpController.getResource(path = "/api-docs.json/atlas/fish")
 
 # AtlasFish
-#GET     /atlas/fish/:id                 controllers.AtlasFishController.getAtlasFishById(id: Long)
-GET      /atlas/fish/:scientificName     controllers.AtlasFishController.getAtlasFishByScientificName(scientificName: String)
-DELETE   /atlas/fish/:scientificName     controllers.AtlasFishController.deleteAtlasFishByScientificName(scientificName: String)
-POST     /atlas/fish                     controllers.AtlasFishController.createAtlasFish()
-PUT      /atlas/fish                     controllers.AtlasFishController.updateAtlasFish()
+GET     /atlas/fish/:id                    controllers.AtlasFishController.getAtlasFishById(id: Long)
+GET      /atlas/fish/:scientificName       controllers.AtlasFishController.getAtlasFishByScientificName(scientificName: String)
+DELETE   /atlas/fish/:scientificName       controllers.AtlasFishController.deleteAtlasFishByScientificName(scientificName: String)
+POST     /atlas/fish                       controllers.AtlasFishController.createAtlasFish()
+PUT      /atlas/fish                       controllers.AtlasFishController.updateAtlasFish()
 
 # Home page
-GET      /                               controllers.Application.index
+GET      /                                 controllers.Application.index
 
 # Map static resources from the /public folder to the /assets URL path
-GET      /assets/*file                   controllers.Assets.at(path="/public", file)
+GET      /assets/*file                     controllers.Assets.at(path="/public", file)
