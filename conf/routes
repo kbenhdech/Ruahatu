@@ -4,20 +4,27 @@
 
 # Swagger configuration générale
 GET      /api-docs.json                    controllers.ApiHelpController.getResources
-#GET      /admin.json/health                controllers.HealthController.getHealth()
-#GET      /admin.xml/health                 controllers.HealthController.getHealth()
-#GET      /admin.json/ping                  controllers.HealthController.ping()
-#GET      /admin.xml/ping                   controllers.HealthController.ping()
+#GET     /admin.json/health                controllers.HealthController.getHealth()
+#GET     /admin.xml/health                 controllers.HealthController.getHealth()
+#GET     /admin.json/ping                  controllers.HealthController.ping()
+#GET     /admin.xml/ping                   controllers.HealthController.ping()
 
 # Swagger configuration controllers
 GET      /api-docs.json/atlas/fish         controllers.ApiHelpController.getResource(path = "/api-docs.json/atlas/fish")
+GET      /api-docs.json/atlas/fish/type    controllers.ApiHelpController.getResource(path = "/api-docs.json/atlas/fish/type")
 
 # AtlasFish
-GET     /atlas/fish/:id                    controllers.AtlasFishController.getAtlasFishById(id: Long)
+#GET     /atlas/fish/:id                   controllers.AtlasFishController.getAtlasFishById(id: Long)
 GET      /atlas/fish/:scientificName       controllers.AtlasFishController.getAtlasFishByScientificName(scientificName: String)
 DELETE   /atlas/fish/:scientificName       controllers.AtlasFishController.deleteAtlasFishByScientificName(scientificName: String)
 POST     /atlas/fish                       controllers.AtlasFishController.createAtlasFish()
 PUT      /atlas/fish                       controllers.AtlasFishController.updateAtlasFish()
+
+# AtlasFishDbType
+GET      /atlas/fish/type/AtlasFishWaterType/:key    controllers.AtlasFishDbTypeController.getAtlasFishDbTypeByDbTypeAndLabel(dbType="AtlasFishWaterType", key: String)
+GET      /atlas/fish/type/AtlasFishFoodType/:key     controllers.AtlasFishDbTypeController.getAtlasFishDbTypeByDbTypeAndLabel(dbType="AtlasFishFoodType", key: String)
+# AtlasFishDbType - Définit pour Swagger
+GET      /atlas/fish/type/:dbType/:key               controllers.AtlasFishDbTypeController.getAtlasFishDbTypeByDbTypeAndLabel(dbType: String, key: String)
 
 # Home page
 GET      /                                 controllers.Application.index
