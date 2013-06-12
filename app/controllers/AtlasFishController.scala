@@ -32,6 +32,7 @@ object AtlasFishController extends Controller {
     )(AtlasFish.apply)(AtlasFish.unapply)
   )
 
+  /*
   @ApiOperation(value = "Recherche un poisson de l'Atlas par ID", notes = "Retourne un poisson de l'Atlas", responseClass = "AtlasFish", httpMethod = "GET")
   @ApiErrors(Array(new ApiError(code = 404, reason = "Poisson d'Atlas non trouvé")))
   def getAtlasFishById(@ApiParam(value = "ID du poisson de l'Atlas") @PathParam("id") id: Long) = Action {
@@ -41,6 +42,7 @@ object AtlasFishController extends Controller {
         case _ => NotFound
       }
   }
+  */
 
   @ApiOperation(value = "Recherche un poisson de l'Atlas par son nom scientifique", notes = "Retourne un poisson de l'Atlas", responseClass = "beans.atlas.fish.AtlasFish", httpMethod = "GET")
   @ApiErrors(Array(new ApiError(code = 404, reason = "Poisson de l'Atlas non trouvé")))

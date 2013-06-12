@@ -54,8 +54,8 @@ object AtlasFishDbTypeController extends Controller {
    */
   private def callSpecificTreatment(dbType: String, treatment: AtlasFishDbTypeModel[AtlasFishDbType] => Result): Result = {
     dbType match {
-      case "AtlasFishWaterType" => treatment(AtlasFishWaterTypeModel.asInstanceOf[AtlasFishDbTypeModel[AtlasFishDbType]])
-      case "AtlasFishFoodType" => treatment(AtlasFishFoodTypeModel.asInstanceOf[AtlasFishDbTypeModel[AtlasFishDbType]])
+      case AtlasFishWaterType.dbType => treatment(AtlasFishWaterTypeModel.asInstanceOf[AtlasFishDbTypeModel[AtlasFishDbType]])
+      case AtlasFishFoodType.dbType => treatment(AtlasFishFoodTypeModel.asInstanceOf[AtlasFishDbTypeModel[AtlasFishDbType]])
       case _ => NotFound
     }
   }

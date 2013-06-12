@@ -38,16 +38,24 @@ object AtlasFishDbType {
   def unapply(atlasFishDbType: AtlasFishDbType) =
     Some(atlasFishDbType.key, atlasFishDbType.value)
 
-  def apply(key: String, value: String) =
+  def apply(keyParam: String, valueParam: String) =
     new AtlasFishDbType {
-      def key: String = key
+      def key: String = keyParam
 
-      def value: String = value
+      def value: String = valueParam
     }
 }
 
 case class AtlasFishWaterType(key: String, value: String) extends AtlasFishDbType
 
+object AtlasFishWaterType {
+  val dbType: String = "ATLAS_FISH_WATER_TYPE"
+}
+
 case class AtlasFishFoodType(key: String, value: String) extends AtlasFishDbType
+
+object AtlasFishFoodType {
+  val dbType: String = "ATLAS_FISH_FOOD_TYPE"
+}
 
 
