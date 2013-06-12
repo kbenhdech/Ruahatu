@@ -63,8 +63,8 @@ object AtlasFishDbTypeController extends Controller {
   @ApiOperation(value = "Recherche de données liés à un poisson de l'Atlas", notes = "Retourne les informations typées", responseClass = "beans.types.AtlasFishDbTypeSwagger", httpMethod = "GET")
   @ApiErrors(Array(new ApiError(code = 404, reason = "Information on trouvée")))
   def getAtlasFishDbTypeByDbTypeAndLabel(
-                                          @ApiParam(value = "Type de donnée") @PathParam("dbType") dbType: String,
-                                          @ApiParam(value = "Clé de la donnée") @PathParam("key") key: String) = Action {
+                                          @ApiParam(value = "Type de la donnée", allowableValues = "ATLAS_FISH_WATER_TYPE,ATLAS_FISH_FOOD_TYPE", required = true) @PathParam("dbType") dbType: String,
+                                          @ApiParam(value = "Clé de la donnée", required = true) @PathParam("key") key: String) = Action {
     implicit request =>
       def treatment(model: AtlasFishDbTypeModel[AtlasFishDbType]): Result = {
         model.findByKey(key) match {
