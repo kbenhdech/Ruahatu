@@ -4,10 +4,11 @@
 
 # Swagger configuration générale
 GET      /api-docs.json                    controllers.ApiHelpController.getResources
-#GET     /admin.json/health                controllers.HealthController.getHealth()
-#GET     /admin.xml/health                 controllers.HealthController.getHealth()
-#GET     /admin.json/ping                  controllers.HealthController.ping()
-#GET     /admin.xml/ping                   controllers.HealthController.ping()
+
+# Swagger configuration Admin
+GET      /api-docs.json/admin              controllers.ApiHelpController.getResource(path = "/api-docs.json/admin")
+GET      /admin.json/health                controllers.HealthController.getHealth
+GET      /admin.json/ping                  controllers.HealthController.ping
 
 # Swagger configuration controllers
 GET      /api-docs.json/atlas/fish         controllers.ApiHelpController.getResource(path = "/api-docs.json/atlas/fish")

@@ -94,13 +94,13 @@ abstract class AtlasFishDbTypeModel[T <: AtlasFishDbType](dbName: String) extend
 /**
  * Table "ATLAS_FISH_WATER_TYPE".
  */
-object AtlasFishWaterTypeModel extends AtlasFishDbTypeModel[AtlasFishWaterType]("ATLAS_FISH_WATER_TYPE") {
+object AtlasFishWaterTypeModel extends AtlasFishDbTypeModel[AtlasFishWaterType](AtlasFishWaterType.dbType) {
   def * = key ~ value <>(AtlasFishWaterType.apply _, AtlasFishWaterType.unapply _)
 }
 
 /**
  * Table "ATLAS_FISH_FOOD_TYPE".
  */
-object AtlasFishFoodTypeModel extends AtlasFishDbTypeModel[AtlasFishFoodType]("ATLAS_FISH_FOOD_TYPE") {
+object AtlasFishFoodTypeModel extends AtlasFishDbTypeModel[AtlasFishFoodType](AtlasFishFoodType.dbType) {
   def * = key ~ value <>(AtlasFishFoodType.apply _, AtlasFishFoodType.unapply _)
 }
