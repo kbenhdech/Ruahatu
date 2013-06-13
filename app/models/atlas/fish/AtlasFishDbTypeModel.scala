@@ -104,3 +104,24 @@ object AtlasFishWaterTypeModel extends AtlasFishDbTypeModel[AtlasFishWaterType](
 object AtlasFishFoodTypeModel extends AtlasFishDbTypeModel[AtlasFishFoodType](AtlasFishFoodType.dbType) {
   def * = key ~ value <>(AtlasFishFoodType.apply _, AtlasFishFoodType.unapply _)
 }
+
+/**
+ * Table "ATLAS_FISH_TEMPERAMENT_TYPE".
+ */
+object AtlasFishTemperamentTypeModel extends AtlasFishDbTypeModel[AtlasFishTemperamentType](AtlasFishTemperamentType.dbType) {
+  def * = key ~ value <>(AtlasFishTemperamentType.apply _, AtlasFishTemperamentType.unapply _)
+}
+
+/**
+ * Table "ATLAS_FISH_REPRODUCTIVE_TYPE".
+ */
+object AtlasFishReproductiveTypeModel extends AtlasFishDbTypeModel[AtlasFishReproductiveType](AtlasFishReproductiveType.dbType) {
+  def * = key ~ value <>(AtlasFishReproductiveType.apply _, AtlasFishReproductiveType.unapply _)
+}
+
+/**
+ * Table "ATLAS_FISH_SWIMMING_AREA_TYPE".
+ */
+object AtlasFishSwimmingAreaTypeModel extends AtlasFishDbTypeModel[AtlasFishSwimmingAreaType](AtlasFishSwimmingAreaType.dbType) {
+  def * = key ~ value <>(AtlasFishSwimmingAreaType.apply _, AtlasFishSwimmingAreaType.unapply _)
+}

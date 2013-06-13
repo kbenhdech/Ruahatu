@@ -22,8 +22,12 @@ POST     /atlas/fish                       controllers.AtlasFishController.creat
 PUT      /atlas/fish                       controllers.AtlasFishController.updateAtlasFish()
 
 # AtlasFishDbType
-GET      /atlas/fish/type/AtlasFishWaterType/:key    controllers.AtlasFishDbTypeController.getAtlasFishDbTypeByDbTypeAndLabel(dbType="AtlasFishWaterType", key: String)
-GET      /atlas/fish/type/AtlasFishFoodType/:key     controllers.AtlasFishDbTypeController.getAtlasFishDbTypeByDbTypeAndLabel(dbType="AtlasFishFoodType", key: String)
+GET      /atlas/fish/type/ATLAS_FISH_WATER_TYPE/:key            controllers.AtlasFishDbTypeController.getAtlasFishDbTypeByDbTypeAndLabel(dbType="ATLAS_FISH_WATER_TYPE", key: String)
+GET      /atlas/fish/type/ATLAS_FISH_FOOD_TYPE/:key             controllers.AtlasFishDbTypeController.getAtlasFishDbTypeByDbTypeAndLabel(dbType="ATLAS_FISH_FOOD_TYPE", key: String)
+GET      /atlas/fish/type/ATLAS_FISH_TEMPERAMENT_TYPE/:key      controllers.AtlasFishDbTypeController.getAtlasFishDbTypeByDbTypeAndLabel(dbType="ATLAS_FISH_TEMPERAMENT_TYPE", key: String)
+GET      /atlas/fish/type/ATLAS_FISH_REPRODUCTIVE_TYPE/:key     controllers.AtlasFishDbTypeController.getAtlasFishDbTypeByDbTypeAndLabel(dbType="ATLAS_FISH_REPRODUCTIVE_TYPE", key: String)
+GET      /atlas/fish/type/ATLAS_FISH_SWIMMING_AREA_TYPE/:key    controllers.AtlasFishDbTypeController.getAtlasFishDbTypeByDbTypeAndLabel(dbType="ATLAS_FISH_SWIMMING_AREA_TYPE", key: String)
+
 # AtlasFishDbType - Définit pour Swagger
 GET      /atlas/fish/type/:dbType/:key               controllers.AtlasFishDbTypeController.getAtlasFishDbTypeByDbTypeAndLabel(dbType: String, key: String)
 

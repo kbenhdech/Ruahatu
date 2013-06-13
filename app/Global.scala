@@ -1,5 +1,7 @@
-import beans.types.{AtlasFishWaterType, AtlasFishFoodType}
-import models.atlas.fish.{AtlasFishWaterTypeModel, AtlasFishFoodTypeModel, AtlasFishModel}
+import beans.atlas.fish.AtlasFish
+import beans.atlas.fish.AtlasFish
+import beans.types._
+import models.atlas.fish._
 import beans.atlas.fish.AtlasFish
 import play.api._
 
@@ -47,6 +49,37 @@ object InitialData {
         AtlasFishWaterType("FRESH_WATER", "Eau douce"),
         AtlasFishWaterType("BRACKISH_WATER", "Eau saumâtre")
       ).foreach(AtlasFishWaterTypeModel.create)
+
+      Seq(
+        AtlasFishTemperamentType("ALL", "Tous"),
+        AtlasFishTemperamentType("PEACEFUL", "Paisible"),
+        AtlasFishTemperamentType("AGGRESSIVE_WITH_ALL_FISH", "Agressif avec tous les poissons"),
+        AtlasFishTemperamentType("AGGRESSIVE_WITH_SMALL_FISH_ONLY", "Agressif avec les petits poissons seulement"),
+        AtlasFishTemperamentType("AGGRESSIVE_WITH_ITS_OWN_KIND", "Agressif avec sa propre espèce"),
+        AtlasFishTemperamentType("FIN_NIPPERS", "Attaque les nageoires") // pinces nageoires
+      ).foreach(AtlasFishTemperamentTypeModel.create)
+
+      // http://www.aqua-passion.com/articles/article-65-les-differents-modes-de-reproduction-chez-les-poissons.html
+      // http://www.aquariumsite.net/Egg%20Layers.htm
+      // http://www.merckmanuals.com/pethealth/exotic_pets/fish/breeding_and_reproduction_of_fish.html
+      Seq(
+        AtlasFishReproductiveType("ALL", "Tous"),
+        AtlasFishReproductiveType("LIVEBEARER", "Ovovivipare"), // Voir alevins // Eau douce
+        AtlasFishReproductiveType("EGG_LAYER", "Ovipare"), // (tends eggs) // Eau douce
+        AtlasFishReproductiveType("EGG_SCATTERER", "Pondeur sur substrat caché"),
+        AtlasFishReproductiveType("EGG_DEPOSITOR", "Pondeur sur substrat découvert"),
+        AtlasFishReproductiveType("EGG_BURRIER", "Pondeur en eau libre"),
+        AtlasFishReproductiveType("NEST_BUILDER", "Pondeur en nid de bulle"),
+        AtlasFishReproductiveType("MOUTH_BROODER", "Incubateur buccal")
+      ).foreach(AtlasFishReproductiveTypeModel.create)
+
+      Seq(
+        AtlasFishSwimmingAreaType("TOP", "Supérieur"),
+        AtlasFishSwimmingAreaType("MIDDLE", "Milieu"),
+        AtlasFishSwimmingAreaType("BOTTOM", "Inférieur"),
+        AtlasFishSwimmingAreaType("NO_SPECIFIC_AREA", "Aucun domaine spécifique"),
+        AtlasFishSwimmingAreaType("MIDDLE_TO_BOTTOM", "Milieu bas")
+      ).foreach(AtlasFishSwimmingAreaTypeModel.create)
 
     }
   }

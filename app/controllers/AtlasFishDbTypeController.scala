@@ -3,12 +3,13 @@ package controllers
 import play.api.mvc._
 import javax.ws.rs.PathParam
 import com.wordnik.swagger.annotations._
-import models.atlas.fish.{AtlasFishWaterTypeModel, AtlasFishFoodTypeModel, AtlasFishDbTypeModel}
+import models.atlas.fish._
 import beans.types._
 import play.api.libs.json._
 import beans.types.AtlasFishFoodType
 import scala.Some
 import beans.types.AtlasFishWaterType
+import scala.Some
 
 /**
  * Controller des APIs relatives à la gestion des poissons de l'Atlas.
@@ -56,6 +57,9 @@ object AtlasFishDbTypeController extends Controller {
     dbType match {
       case AtlasFishWaterType.dbType => treatment(AtlasFishWaterTypeModel.asInstanceOf[AtlasFishDbTypeModel[AtlasFishDbType]])
       case AtlasFishFoodType.dbType => treatment(AtlasFishFoodTypeModel.asInstanceOf[AtlasFishDbTypeModel[AtlasFishDbType]])
+      case AtlasFishTemperamentType.dbType => treatment(AtlasFishTemperamentTypeModel.asInstanceOf[AtlasFishDbTypeModel[AtlasFishDbType]])
+      case AtlasFishReproductiveType.dbType => treatment(AtlasFishReproductiveTypeModel.asInstanceOf[AtlasFishDbTypeModel[AtlasFishDbType]])
+      case AtlasFishSwimmingAreaType.dbType => treatment(AtlasFishSwimmingAreaTypeModel.asInstanceOf[AtlasFishDbTypeModel[AtlasFishDbType]])
       case _ => NotFound
     }
   }
@@ -63,7 +67,7 @@ object AtlasFishDbTypeController extends Controller {
   @ApiOperation(value = "Recherche de données liés à un poisson de l'Atlas", notes = "Retourne les informations typées", responseClass = "beans.types.AtlasFishDbTypeSwagger", httpMethod = "GET")
   @ApiErrors(Array(new ApiError(code = 404, reason = "Information on trouvée")))
   def getAtlasFishDbTypeByDbTypeAndLabel(
-                                          @ApiParam(value = "Type de la donnée", allowableValues = "ATLAS_FISH_WATER_TYPE,ATLAS_FISH_FOOD_TYPE", required = true) @PathParam("dbType") dbType: String,
+                                          @ApiParam(value = "Type de la donnée", allowableValues = AtlasFishDbTypeSwagger.allDbType, required = true) @PathParam("dbType") dbType: String,
                                           @ApiParam(value = "Clé de la donnée", required = true) @PathParam("key") key: String) = Action {
     implicit request =>
       def treatment(model: AtlasFishDbTypeModel[AtlasFishDbType]): Result = {
