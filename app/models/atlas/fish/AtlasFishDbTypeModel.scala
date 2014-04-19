@@ -44,9 +44,12 @@ abstract class AtlasFishDbTypeModel[T <: AtlasFishDbType](dbName: String) extend
    * @return
    */
   def create(atlasFishDbType: T) = {
-    DB.withSession {
+    DB.withTransaction {
       implicit session =>
-        this.insert(atlasFishDbType)
+        this.findByKey(atlasFishDbType.key) match {
+          case None => this.insert(atlasFishDbType); None
+          case Some(atlasFishDbTypeRetrieved) => Some(ALREADY_EXIST)
+        }
     }
   }
 
@@ -124,4 +127,18 @@ object AtlasFishReproductiveTypeModel extends AtlasFishDbTypeModel[AtlasFishRepr
  */
 object AtlasFishSwimmingAreaTypeModel extends AtlasFishDbTypeModel[AtlasFishSwimmingAreaType](AtlasFishSwimmingAreaType.dbType) {
   def * = key ~ value <>(AtlasFishSwimmingAreaType.apply _, AtlasFishSwimmingAreaType.unapply _)
+}
+
+/**
+ * Table "ATLAS_FISH_FAMILY_TYPE".
+ */
+object AtlasFishFamilyTypeModel extends AtlasFishDbTypeModel[AtlasFishFamilyType](AtlasFishFamilyType.dbType) {
+  def * = key ~ value <>(AtlasFishFamilyType.apply _, AtlasFishFamilyType.unapply _)
+}
+
+/**
+ * Table "ATLAS_FISH_BIO_TYPE".
+ */
+object AtlasFishBioTypeModel extends AtlasFishDbTypeModel[AtlasFishBioType](AtlasFishBioType.dbType) {
+  def * = key ~ value <>(AtlasFishBioType.apply _, AtlasFishBioType.unapply _)
 }

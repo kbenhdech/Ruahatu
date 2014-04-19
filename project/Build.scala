@@ -16,8 +16,8 @@ object ApplicationBuild extends Build {
     "com.h2database" % "h2" % "1.3.166",
 
     // Swagger
-    "com.wordnik" %% "swagger-play2-utils" % "1.2.4",
-    "com.wordnik" %% "swagger-play2" % "1.2.4"
+    "com.wordnik" %% "swagger-play2" % "1.2.4",
+    "com.wordnik" %% "swagger-play2-utils" % "1.2.4"
   )
 
 

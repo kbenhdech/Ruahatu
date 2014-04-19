@@ -21,7 +21,10 @@ abstract class ApiBbType {
 case class AtlasFishDbTypeSwagger(key: String, value: String) extends ApiBbType
 
 object AtlasFishDbTypeSwagger {
-  final val allDbType = AtlasFishWaterType.dbType + "," + AtlasFishFoodType.dbType + "," + AtlasFishTemperamentType.dbType + "," + AtlasFishReproductiveType.dbType + "," + AtlasFishSwimmingAreaType.dbType
+  final val allDbType = AtlasFishWaterType.dbType + "," + AtlasFishFoodType.dbType +
+    "," + AtlasFishTemperamentType.dbType + "," + AtlasFishReproductiveType.dbType +
+    "," + AtlasFishSwimmingAreaType.dbType + "," + AtlasFishFamilyType.dbType +
+    "," + AtlasFishBioType.dbType
 }
 
 /**
@@ -78,6 +81,18 @@ case class AtlasFishSwimmingAreaType(key: String, value: String) extends AtlasFi
 
 object AtlasFishSwimmingAreaType {
   final val dbType = "ATLAS_FISH_SWIMMING_AREA_TYPE"
+}
+
+case class AtlasFishFamilyType(key: String, value: String) extends AtlasFishDbType
+
+object AtlasFishFamilyType {
+  final val dbType = "ATLAS_FISH_FAMILY_TYPE"
+}
+
+case class AtlasFishBioType(key: String, value: String) extends AtlasFishDbType
+
+object AtlasFishBioType{
+  final val dbType = "ATLAS_FISH_BIO_TYPE"
 }
 
 
